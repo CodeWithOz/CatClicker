@@ -44,13 +44,17 @@ describe('Clicking the image', () => {
   });
 
   it('increments the counter', done => {
-    cat.addEventListener('click', event => {
+    const testForIncrement = event => {
       // check for increments after image has been clicked
       const newCount = Number(counter.textContent);
       expect(newCount).toEqual(++curClicks);
 
+      // remove this event listener
+      cat.removeEventListener('click', testForIncrement);
+
       done();
-    });
+    };
+    cat.addEventListener('click', testForIncrement);
 
     cat.click();
   });
