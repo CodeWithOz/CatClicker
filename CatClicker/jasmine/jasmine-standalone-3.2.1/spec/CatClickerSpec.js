@@ -1,3 +1,38 @@
+const customMatchers = {
+  toBeInstanceOf(util, customEqualityTesters) {
+    return {
+      compare(actual, expected) {
+        const result = {};
+        result.pass = actual instanceof expected;
+        if (result.pass) {
+          result.message = `Expected ${actual} not to be an instance of ${expected}`;
+        } else {
+          result.message = `Expected ${actual} to be an instance of ${expected}`;
+        }
+
+        return result;
+      }
+    };
+  }
+};
+
+/*
+ * This suite ensures that there is a clickable image on the page
+ */
+
+describe('An image', () => {
+  // ensure there is an img element with a valid src attribute
+  beforeEach(() => {
+    jasmine.addMatchers(customMatchers);
+  });
+
+  it('is on the page', () => {
+    const img = document.querySelector('img');
+    expect(img).toBeInstanceOf(HTMLImageElement);
+    expect(img.src).not.toBeNull();
+  });
+});
+
 /*
  * This suite ensures that the counter increments when the image
  * is clicked.
