@@ -24,14 +24,23 @@ describe('Two images', () => {
   // ensure there is an img element with a valid src attribute
   beforeEach(() => {
     jasmine.addMatchers(customMatchers);
+    images = [...document.querySelectorAll('img')];
   });
 
   it('are on the page', () => {
-    const images = document.querySelectorAll('img');
     expect(images.length).toEqual(2);
     images.forEach(img => {
       expect(img).toBeInstanceOf(HTMLImageElement);
       expect(img.getAttribute('src')).not.toEqual('');
+    });
+  });
+
+  // ensure both images have names
+  it('have names', () => {
+    images.forEach(image => {
+      const title = image.previousElementSibling;
+      expect(title).toBeInstanceOf(HTMLParagraphElement);
+      expect(title.textContent).not.toEqual('');
     });
   });
 });
