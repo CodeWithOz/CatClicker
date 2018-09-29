@@ -2,7 +2,18 @@ section {
   text-align: center;
 }
 
+.cat-pics {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
+}
+
+.cat-pics section {
+  width: 50%;
+}
+
 img {
-  width: 40%;
+  width: 100%;
   cursor: pointer;
 }
