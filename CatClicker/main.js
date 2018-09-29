@@ -1,7 +1,10 @@
 // track clicks on the image
-const cat = document.querySelector('img');
-cat.addEventListener('click', event => {
-  const counter = cat.parentElement.nextElementSibling;
+const imageDiv = document.querySelector('.cat-pics');
+imageDiv.addEventListener('click', event => {
+  // exit if click is not from an image
+  if (event.target.tagName !== 'IMG') return;
+
+  const counter = imageDiv.nextElementSibling;
   let curClicks = Number(counter.textContent);
   curClicks++;
 
