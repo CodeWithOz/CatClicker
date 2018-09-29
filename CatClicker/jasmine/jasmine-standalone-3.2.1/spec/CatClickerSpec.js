@@ -17,19 +17,22 @@ const customMatchers = {
 };
 
 /*
- * This suite ensures that there is a clickable image on the page
+ * This suite ensures that there are 2 clickable images on the page
  */
 
-describe('An image', () => {
+describe('Two images', () => {
   // ensure there is an img element with a valid src attribute
   beforeEach(() => {
     jasmine.addMatchers(customMatchers);
   });
 
-  it('is on the page', () => {
-    const img = document.querySelector('img');
-    expect(img).toBeInstanceOf(HTMLImageElement);
-    expect(img.src).not.toBeNull();
+  it('are on the page', () => {
+    const images = document.querySelectorAll('img');
+    expect(images.length).toEqual(2);
+    images.forEach(img => {
+      expect(img).toBeInstanceOf(HTMLImageElement);
+      expect(img.getAttribute('src')).not.toEqual('');
+    });
   });
 });
 
