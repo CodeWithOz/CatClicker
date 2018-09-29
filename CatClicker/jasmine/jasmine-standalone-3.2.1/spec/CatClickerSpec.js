@@ -37,28 +37,39 @@ describe('Two images', () => {
 });
 
 /*
- * This suite ensures that the counter increments when the image
- * is clicked.
+ * This suite ensures that the counter increments when the images
+ * are clicked.
  */
-describe('Clicking the image', () => {
+describe('Clicking each image', () => {
   beforeEach(() => {
-    counter = cat.parentElement.nextElementSibling;
+    counter = document.querySelector('.clicks');
     curClicks = Number(counter.textContent);
+    images = [...document.querySelectorAll('img')];
+    imgContainer = document.querySelector('.cat-pics');
   });
 
   it('increments the counter', done => {
     const testForIncrement = event => {
+      // exit if click is not from an image
+      if (event.target.tagName !== 'IMG') return;
+
       // check for increments after image has been clicked
       const newCount = Number(counter.textContent);
       expect(newCount).toEqual(++curClicks);
 
-      // remove this event listener
-      cat.removeEventListener('click', testForIncrement);
+      if (event.target === images[1]) {
+        // after second image has been tested
+        // remove this event listener
+        imgContainer.removeEventListener('click', testForIncrement);
 
-      done();
+        // signal async completion
+        done();
+      }
     };
-    cat.addEventListener('click', testForIncrement);
+    imgContainer.addEventListener('click', testForIncrement);
 
-    cat.click();
+    images.forEach(cat => {
+      cat.click();
+    });
   });
 });
