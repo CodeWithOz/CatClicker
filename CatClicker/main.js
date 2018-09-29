@@ -8,10 +8,13 @@ cats.forEach((cat, index) => {
 // track clicks on the image
 const imageDiv = document.querySelector('.cat-pics');
 imageDiv.addEventListener('click', event => {
-  // exit if click is not from an image
-  if (event.target.tagName !== 'IMG') return;
+  const { target } = event;
 
-  const counter = document.querySelector('.clicks');
+  // exit if click is not from an image
+  if (target.tagName !== 'IMG') return;
+
+  // get and increment count
+  const counter = target.nextElementSibling.querySelector('.clicks');
   let curClicks = Number(counter.textContent);
   curClicks++;
 
