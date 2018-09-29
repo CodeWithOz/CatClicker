@@ -11,7 +11,7 @@ imageDiv.addEventListener('click', event => {
   // exit if click is not from an image
   if (event.target.tagName !== 'IMG') return;
 
-  const counter = imageDiv.nextElementSibling;
+  const counter = document.querySelector('.clicks');
   let curClicks = Number(counter.textContent);
   curClicks++;
 
