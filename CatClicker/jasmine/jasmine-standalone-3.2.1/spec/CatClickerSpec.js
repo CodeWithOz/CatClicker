@@ -43,6 +43,14 @@ describe('Two images', () => {
       expect(title.textContent).not.toEqual('');
     });
   });
+
+  // ensure both have a counter
+  it('have a click counter each', () => {
+    images.forEach(image => {
+      const counter = image.nextElementSibling.querySelector('.clicks');
+      expect(counter).toBeInstanceOf(HTMLSpanElement);
+    });
+  });
 });
 
 /*
