@@ -27,7 +27,7 @@ describe('Two images', () => {
     images = [...document.querySelectorAll('img')];
   });
 
-  it('are on the page', () => {
+  they('are on the page', () => {
     expect(images.length).toEqual(2);
     images.forEach(img => {
       expect(img).toBeInstanceOf(HTMLImageElement);
@@ -36,7 +36,7 @@ describe('Two images', () => {
   });
 
   // ensure both images have names
-  it('have names', () => {
+  they('have names', () => {
     images.forEach(image => {
       const title = image.previousElementSibling;
       expect(title).toBeInstanceOf(HTMLParagraphElement);
@@ -45,7 +45,7 @@ describe('Two images', () => {
   });
 
   // ensure both have a counter
-  it('have a click counter each', () => {
+  they('each have a click counter', () => {
     images.forEach(image => {
       const counter = image.nextElementSibling.querySelector('.clicks');
       expect(counter).toBeInstanceOf(HTMLSpanElement);
