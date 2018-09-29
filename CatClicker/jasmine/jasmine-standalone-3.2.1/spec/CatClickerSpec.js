@@ -54,27 +54,34 @@ describe('Two images', () => {
 });
 
 /*
- * This suite ensures that the counter increments when the images
+ * This suite ensures that the counters increment when the images
  * are clicked.
  */
 describe('Clicking each image', () => {
   beforeEach(() => {
-    counter = document.querySelector('.clicks');
-    curClicks = Number(counter.textContent);
+    curClicks = {};
     images = [...document.querySelectorAll('img')];
+    images.forEach(image => {
+      // record the current clicks for each image
+      const counter = image.nextElementSibling.querySelector('.clicks');
+      curClicks[image.dataset.pos] = Number(counter.textContent);
+    });
     imgContainer = document.querySelector('.cat-pics');
   });
 
-  it('increments the counter', done => {
+  it('increments its respective counter', done => {
     const testForIncrement = event => {
+      const { target } = event;
+
       // exit if click is not from an image
-      if (event.target.tagName !== 'IMG') return;
+      if (target.tagName !== 'IMG') return;
 
       // check for increments after image has been clicked
-      const newCount = Number(counter.textContent);
-      expect(newCount).toEqual(++curClicks);
+      const counter = target.nextElementSibling.querySelector('.clicks'),
+        newCount = Number(counter.textContent);
+      expect(newCount).toEqual(++curClicks[target.dataset.pos]);
 
-      if (event.target === images[1]) {
+      if (target === images[1]) {
         // after second image has been tested
         // remove this event listener
         imgContainer.removeEventListener('click', testForIncrement);
