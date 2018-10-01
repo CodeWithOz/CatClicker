@@ -32,6 +32,24 @@ h1 {
   color: var(--heading-color);
 }
 
+main {
+  /* allow custom positioning of child elements */
+  position: relative;
+}
+
+.cats-menu {
+  /* position in the top left of the body */
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 30%;
+  max-width: 200px;
+  height: 100%;
+  background-color: #66a4fe;
+  text-align: center;
+}
+
 section {
   text-align: center;
 }
