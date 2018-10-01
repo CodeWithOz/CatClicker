@@ -2,6 +2,10 @@
   --menu-text-color: #fff;
 }
 
+body {
+  font-family: sans-serif;
+}
+
 nav {
   /* allow custom positioning of child elements */
   position: relative;
@@ -15,7 +19,6 @@ nav {
 
 h1 {
   text-align: center;
-  font-family: sans-serif;
 }
 
 .hamburger {
