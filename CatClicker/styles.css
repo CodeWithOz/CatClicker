@@ -54,7 +54,7 @@ main {
   max-width: 200px;
   /* TODO: set a min-width */
 
-  /* TODO: describe the reason for setting the height here */
+  /* extend the menu to the bottom of the webpage */
   height: 100%;
 
   color: var(--menu-text-color);
