@@ -95,7 +95,10 @@ main {
 }
 
 .cat-display {
-  /* prevent top margin of first child from moving this element down */
+  /*
+   * prevent top margin of first child from moving this element down
+   * see https://stackoverflow.com/a/1939980/7987987
+   */
   overflow: auto;
 }
 
