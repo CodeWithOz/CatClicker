@@ -1,12 +1,13 @@
-nav {
-  /* set heading color within this nav */
-  --heading-color: #fff;
+:root {
+  --menu-text-color: #fff;
+}
 
+nav {
   /* allow custom positioning of child elements */
   position: relative;
 
   background-color: #1a77fe;
-  color: var(--heading-color);
+  color: var(--menu-text-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,8 +29,7 @@ h1 {
   /* remove anchor tag's default styling */
   text-decoration: none;
 
-  /* use heading color */
-  color: var(--heading-color);
+  color: var(--menu-text-color);
 }
 
 main {
@@ -46,6 +46,7 @@ main {
   width: 30%;
   max-width: 200px;
   height: 100%;
+  color: var(--menu-text-color);
   background-color: #66a4fe;
   text-align: center;
 }
