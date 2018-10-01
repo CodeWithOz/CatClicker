@@ -1,9 +1,12 @@
 nav {
+  /* set heading color within this nav */
+  --heading-color: #fff;
+
   /* allow custom positioning of child elements */
   position: relative;
 
   background-color: #1a77fe;
-  color: #fff;
+  color: var(--heading-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,6 +22,14 @@ h1 {
   position: absolute;
   left: 0px;
   padding: 0 20px;
+}
+
+.hamburger a {
+  /* remove anchor tag's default styling */
+  text-decoration: none;
+
+  /* use heading color */
+  color: var(--heading-color);
 }
 
 section {
