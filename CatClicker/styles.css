@@ -28,7 +28,6 @@ h1 {
   /* fix hamburger to the left of the navbar */
   position: absolute;
   left: 0px;
-  padding: 0 20px;
 }
 
 .hamburger a,
@@ -37,6 +36,29 @@ h1 {
   text-decoration: none;
 
   color: var(--menu-text-color);
+
+  /*
+   * make the a tag fill up its container
+   * this increases the clickable area of the tag
+   * see https://stackoverflow.com/a/11078553/7987987
+   */
+  display: block;
+}
+
+.hamburger a {
+  /*
+   * create some space around the hamburger
+   * this space is clickable because of `display: block` earlier
+   */
+  padding: 20px;
+}
+
+.cats-menu a {
+  /*
+   * create some space above and below the hamburger
+   * this space is clickable because of `display: block` earlier
+   */
+  padding: 0.5em 0;
 }
 
 main {
@@ -68,11 +90,8 @@ main {
 }
 
 .cats-menu li {
-  /* TODO: make the whole list item clickable */
-
   border-top: 1px dashed var(--menu-text-color);
   border-bottom: 1px dashed var(--menu-text-color);
-  padding: 0.5em 0;
 }
 
 .cat-display {
