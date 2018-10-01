@@ -28,7 +28,8 @@ h1 {
   padding: 0 20px;
 }
 
-.hamburger a {
+.hamburger a,
+.cats-menu a {
   /* remove anchor tag's default styling */
   text-decoration: none;
 
