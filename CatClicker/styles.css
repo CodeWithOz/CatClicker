@@ -49,11 +49,28 @@ main {
 
   width: 30%;
   max-width: 200px;
+  /* TODO: set a min-width */
+
   height: 100%;
   color: var(--menu-text-color);
   background-color: #66a4fe;
-  text-align: center;
+  padding: 0 0.5em;
 }
+
+.cats-menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cats-menu li {
+  /* TODO: make the whole list item clickable */
+
+  border-top: 1px dashed var(--menu-text-color);
+  border-bottom: 1px dashed var(--menu-text-color);
+  padding: 0.5em 0;
+}
+
+/* TODO: collapse margin between aside and section */
 
 section {
   text-align: center;
