@@ -4,6 +4,9 @@
 
 body {
   font-family: sans-serif;
+
+  /* remove default margins */
+  margin: 0;
 }
 
 nav {
@@ -51,7 +54,9 @@ main {
   max-width: 200px;
   /* TODO: set a min-width */
 
+  /* TODO: describe the reason for setting the height here */
   height: 100%;
+
   color: var(--menu-text-color);
   background-color: #66a4fe;
   padding: 0 0.5em;
@@ -70,7 +75,10 @@ main {
   padding: 0.5em 0;
 }
 
-/* TODO: collapse margin between aside and section */
+.cat-display {
+  /* prevent top margin of first child from moving this element down */
+  overflow: auto;
+}
 
 section {
   text-align: center;
