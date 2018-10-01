@@ -51,8 +51,8 @@ main {
   left: 0;
 
   width: 30%;
-  max-width: 200px;
-  /* TODO: set a min-width */
+  max-width: 250px;
+  min-width: 150px;
 
   /* extend the menu to the bottom of the webpage */
   height: 100%;
