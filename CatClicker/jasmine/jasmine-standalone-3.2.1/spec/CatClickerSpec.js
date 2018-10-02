@@ -17,6 +17,17 @@ const customMatchers = {
 };
 
 /*
+ * This suite tests the menu's behavior
+ */
+describe('The sidebar', () => {
+  // ensure it is hidden by default
+  it('is hidden by default', () => {
+    const sidebar = document.querySelector('.cats-menu');
+    expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
+  });
+});
+
+/*
  * This suite ensures that there are 2 clickable images on the page
  */
 
