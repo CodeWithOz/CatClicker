@@ -16,7 +16,7 @@ cats.forEach((cat, index) => {
 });
 
 // track clicks on the image
-const imageDiv = document.querySelector('.cat-pics');
+const imageDiv = document.querySelector('.cat-pic');
 imageDiv.addEventListener('click', event => {
   const { target } = event;
 
