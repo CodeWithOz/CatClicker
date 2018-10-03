@@ -98,46 +98,42 @@ describe('The cat image', () => {
 });
 
 /*
- * This suite ensures that the counters increment when the images
- * are clicked.
+ * This suite ensures that the counter increments when the image
+ * is clicked.
  */
-describe('Clicking each image', () => {
+describe('Clicking the image', () => {
   beforeEach(() => {
-    curClicks = {};
-    images = [...document.querySelectorAll('img')];
-    images.forEach(image => {
-      // record the current clicks for each image
-      const counter = image.nextElementSibling.querySelector('.clicks');
-      curClicks[image.dataset.pos] = Number(counter.textContent);
-    });
-    imgContainer = document.querySelector('.cat-pics');
+    curClicks = 0;
+    image = document.querySelector('img');
+
+    // record the current clicks for each image
+    const counter = image.nextElementSibling.querySelector('.clicks');
+    curClicks = Number(counter.textContent);
+
+    imgContainer = document.querySelector('.cat-pic');
   });
 
-  it('increments its respective counter', done => {
+  it('increments its counter', done => {
     const testForIncrement = event => {
       const { target } = event;
 
       // exit if click is not from an image
       if (target.tagName !== 'IMG') return;
 
-      // check for increments after image has been clicked
       const counter = target.nextElementSibling.querySelector('.clicks'),
         newCount = Number(counter.textContent);
-      expect(newCount).toEqual(++curClicks[target.dataset.pos]);
+      expect(newCount).toEqual(++curClicks);
 
-      if (target === images[1]) {
-        // after second image has been tested
-        // remove this event listener
-        imgContainer.removeEventListener('click', testForIncrement);
+      // remove this event listener
+      imgContainer.removeEventListener('click', testForIncrement);
 
-        // signal async completion
-        done();
-      }
+      // signal async completion
+      done();
     };
+
+    // check for increment after image has been clicked
     imgContainer.addEventListener('click', testForIncrement);
 
-    images.forEach(cat => {
-      cat.click();
-    });
+    image.click();
   });
 });
