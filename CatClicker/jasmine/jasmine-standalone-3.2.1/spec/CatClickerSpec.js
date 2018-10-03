@@ -20,10 +20,14 @@ const customMatchers = {
  * This suite tests the menu's behavior
  */
 describe('The sidebar', () => {
+  const sidebar = document.querySelector('.cats-menu'),
+    getSidebarRect = () => sidebar.getBoundingClientRect();
+
   // ensure it is hidden by default
   it('is hidden by default', () => {
-    const sidebar = document.querySelector('.cats-menu');
+    const sidebarRect = getSidebarRect();
     expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
+    expect(sidebarRect.right).toBeLessThanOrEqual(0);
   });
 });
 
