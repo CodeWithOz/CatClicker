@@ -69,39 +69,31 @@ describe('The sidebar', () => {
 });
 
 /*
- * This suite ensures that there are 2 clickable images on the page
+ * This suite ensures that there is 1 clickable image on the page
  */
 
-describe('Two images', () => {
+describe('The cat image', () => {
   // ensure there is an img element with a valid src attribute
   beforeEach(() => {
     jasmine.addMatchers(customMatchers);
-    images = [...document.querySelectorAll('img')];
+    image = document.querySelector('img');
   });
 
-  they('are on the page', () => {
-    expect(images.length).toEqual(2);
-    images.forEach(img => {
-      expect(img).toBeInstanceOf(HTMLImageElement);
-      expect(img.getAttribute('src')).not.toEqual('');
-    });
+  it('is on the page', () => {
+    expect(image).toBeInstanceOf(HTMLImageElement);
+    expect(image.getAttribute('src')).not.toEqual('');
   });
 
-  // ensure both images have names
-  they('have names', () => {
-    images.forEach(image => {
-      const title = image.previousElementSibling;
-      expect(title).toBeInstanceOf(HTMLParagraphElement);
-      expect(title.textContent).not.toEqual('');
-    });
+  it('has a name', () => {
+    const title = image.previousElementSibling;
+    expect(title).toBeInstanceOf(HTMLParagraphElement);
+    expect(title.textContent).not.toEqual('');
   });
 
   // ensure both have a counter
-  they('each have a click counter', () => {
-    images.forEach(image => {
-      const counter = image.nextElementSibling.querySelector('.clicks');
-      expect(counter).toBeInstanceOf(HTMLSpanElement);
-    });
+  it('has a click counter', () => {
+    const counter = image.nextElementSibling.querySelector('.clicks');
+    expect(counter).toBeInstanceOf(HTMLSpanElement);
   });
 });
 
