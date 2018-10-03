@@ -80,6 +80,9 @@ main {
   color: var(--menu-text-color);
   background-color: #66a4fe;
   padding: 0 0.5em;
+
+  /* transition for showing/hiding the sidebar */
+  transition: transform 0.3s;
 }
 
 .sidebar-hidden {

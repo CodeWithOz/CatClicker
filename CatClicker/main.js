@@ -1,3 +1,13 @@
+const hamburger = document.querySelector('.hamburger a'),
+  sidebar = document.querySelector('.cats-menu');
+
+// handle hamburger clicks
+hamburger.addEventListener('click', event => {
+  event.preventDefault();
+
+  sidebar.classList.toggle('sidebar-hidden');
+});
+
 // give the cats names
 const cats = [...document.querySelectorAll('img')],
   catNames = ['Floor cat', 'Stunned cat'];
