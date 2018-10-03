@@ -69,6 +69,19 @@ describe('The sidebar', () => {
 });
 
 /*
+ * This suite ensures that items on the the cat list
+ * contain the necessary info
+ */
+describe('Items on the cat list', () => {
+  const sidebar = document.querySelector('.cats-menu'),
+    cats = sidebar.querySelectorAll('li');
+
+  they('add up to a total of 5', () => {
+    expect(cats.length).toEqual(5);
+  });
+});
+
+/*
  * This suite ensures that there is 1 clickable image on the page
  */
 
