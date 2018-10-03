@@ -72,7 +72,7 @@ describe('The sidebar', () => {
  * This suite ensures that there is 1 clickable image on the page
  */
 
-describe('The cat image', () => {
+describe('A cat image', () => {
   // ensure there is an img element with a valid src attribute
   beforeEach(() => {
     jasmine.addMatchers(customMatchers);
