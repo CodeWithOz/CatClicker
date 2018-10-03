@@ -21,13 +21,32 @@ const customMatchers = {
  */
 describe('The sidebar', () => {
   const sidebar = document.querySelector('.cats-menu'),
-    getSidebarRect = () => sidebar.getBoundingClientRect();
+    getSidebarRect = () => sidebar.getBoundingClientRect(),
+    hamburger = document.querySelector('.hamburger a');
 
   // ensure it is hidden by default
   it('is hidden by default', () => {
     const sidebarRect = getSidebarRect();
     expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
     expect(sidebarRect.right).toBeLessThanOrEqual(0);
+  });
+
+  // handle clicks on the hamburger button
+  it('shows on first click', (done) => {
+    const testForShownMenu = event => {
+      const sidebarRect = getSidebarRect();
+      // position of right edge should be equal to the width
+      expect(sidebarRect.right).toEqual(sidebarRect.width);
+
+      // remove the event listener
+      sidebar.removeEventListener('transitionend', testForShownMenu);
+
+      // signal async completion
+      done();
+    };
+
+    sidebar.addEventListener('transitionend', testForShownMenu);
+    hamburger.click();
   });
 });
 
