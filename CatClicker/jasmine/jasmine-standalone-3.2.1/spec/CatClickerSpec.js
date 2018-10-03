@@ -48,6 +48,24 @@ describe('The sidebar', () => {
     sidebar.addEventListener('transitionend', testForShownMenu);
     hamburger.click();
   });
+
+  // handle clicks on the hamburger button
+  it('hides on second click', (done) => {
+    const testForHiddenMenu = event => {
+      const sidebarRect = getSidebarRect();
+      // right edge should be off-screen
+      expect(sidebarRect.right).toBeLessThan(0);
+
+      // remove the event listener
+      sidebar.removeEventListener('transitionend', testForHiddenMenu);
+
+      // signal async completion
+      done();
+    };
+
+    sidebar.addEventListener('transitionend', testForHiddenMenu);
+    hamburger.click();
+  });
 });
 
 /*
