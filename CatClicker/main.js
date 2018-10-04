@@ -18,15 +18,32 @@ sidebarCats.forEach(cat => {
   clickableArea.textContent = cat.dataset.name;
 });
 
-// give the cats names
-const cats = [...document.querySelectorAll('img')],
-  catNames = ['Floor cat', 'Stunned cat'];
-cats.forEach((cat, index) => {
-  cat.previousElementSibling.textContent = catNames[index];
-});
+// display cat when its name is clicked in sidebar
+const imageDiv = document.querySelector('.cat-pic');
+sidebar.addEventListener('click', loadCat);
+
+function loadCat(event) {
+  const { target } = event;
+
+  // exit if click is not from the list item anchor tag
+  if (target.tagName !== 'A') return;
+
+  event.preventDefault();
+
+  // get the parent that contains the necessary info
+  const cat = target.parentElement;
+
+  // populate the main image display
+  const [title, image, countContainer] = [...imageDiv.children[0].children];
+  title.textContent = cat.dataset.name;
+  image.setAttribute('src', cat.dataset.src);
+  countContainer.children[0].textContent = cat.dataset.count;
+}
+
+// show the first cat on page load
+sidebarCats[0].children[0].click();
 
 // track clicks on the image
-const imageDiv = document.querySelector('.cat-pic');
 imageDiv.addEventListener('click', event => {
   const { target } = event;
 
