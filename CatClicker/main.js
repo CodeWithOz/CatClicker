@@ -9,7 +9,7 @@ hamburger.addEventListener('click', event => {
 });
 
 // populate cat names in sidebar
-const sidebarCats = sidebar.querySelectorAll('li');
+const sidebarCats = [...sidebar.querySelectorAll('li')];
 sidebarCats.forEach(cat => {
   // get the inner anchor tag
   const clickableArea = cat.children[0];
@@ -59,5 +59,9 @@ imageDiv.addEventListener('click', event => {
   curClicks++;
 
   // update counter text
+  // on-page counter
   counter.textContent = curClicks;
+  // sidebar counter
+  const sidebarCat = sidebarCats.filter(cat => cat.dataset.index === target.dataset.index)[0];
+  sidebarCat.dataset.count = curClicks;
 });
