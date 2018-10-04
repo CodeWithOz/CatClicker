@@ -177,16 +177,32 @@ describe('Clicking the image', () => {
     imgContainer = document.querySelector('.cat-pic');
   });
 
-  it('increments its counter', done => {
+  it('increments its counters', done => {
     const testForIncrement = event => {
       const { target } = event;
 
       // exit if click is not from an image
       if (target.tagName !== 'IMG') return;
 
+      // update the click count
+      const updatedClicks = curClicks + 1;
+
+      // on-page counter
       const counter = target.nextElementSibling.querySelector('.clicks'),
         newCount = Number(counter.textContent);
-      expect(newCount).toEqual(++curClicks);
+      expect(newCount).toEqual(updatedClicks);
+
+      // sidebar counter
+      const sidebar = document.querySelector('.cats-menu'),
+        selectorString = `li[data-index="${target.dataset.index}"]`,
+        sidebarCat = sidebar.querySelector(selectorString);
+
+      /*
+       * Note that the dataset property stores all info as
+       * strings (in a DOMStringMap object).
+       * So the `count` property must be converted back to a number for testing.
+       */
+      expect(Number(sidebarCat.dataset.count)).toEqual(updatedClicks);
 
       // remove this event listener
       imgContainer.removeEventListener('click', testForIncrement);
