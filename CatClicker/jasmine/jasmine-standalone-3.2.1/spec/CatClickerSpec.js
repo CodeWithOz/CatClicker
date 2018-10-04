@@ -32,7 +32,7 @@ describe('The sidebar', () => {
   });
 
   // handle clicks on the hamburger button
-  it('shows on first click', (done) => {
+  it('shows on first hamburger click', (done) => {
     const testForShownMenu = event => {
       const sidebarRect = getSidebarRect();
       // position of right edge should be equal to the width
@@ -49,8 +49,7 @@ describe('The sidebar', () => {
     hamburger.click();
   });
 
-  // handle clicks on the hamburger button
-  it('hides on second click', (done) => {
+  it('hides on second hamburger click', (done) => {
     const testForHiddenMenu = event => {
       const sidebarRect = getSidebarRect();
       // right edge should be off-screen
