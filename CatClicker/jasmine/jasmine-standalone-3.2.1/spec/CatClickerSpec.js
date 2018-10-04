@@ -80,7 +80,7 @@ describe('Items on the cat list', () => {
     expect(cats.length).toEqual(5);
   });
 
-  they('each have a name', () => {
+  they('each have a name property', () => {
     cats.forEach(cat => {
       expect(cat.dataset.name).toBeDefined();
 
@@ -89,7 +89,7 @@ describe('Items on the cat list', () => {
     });
   });
 
-  they('each have a src', () => {
+  they('each have a src property', () => {
     cats.forEach(cat => {
       expect(cat.dataset.src).toBeDefined();
 
@@ -98,7 +98,7 @@ describe('Items on the cat list', () => {
     });
   });
 
-  they('each have a click count', () => {
+  they('each have a count property', () => {
     cats.forEach(cat => {
       expect(cat.dataset.count).toBeDefined();
 
