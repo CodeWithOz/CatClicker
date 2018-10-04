@@ -76,8 +76,40 @@ describe('Items on the cat list', () => {
   const sidebar = document.querySelector('.cats-menu'),
     cats = sidebar.querySelectorAll('li');
 
+  beforeEach(() => {
+    jasmine.addMatchers(customMatchers);
+  });
+
   they('add up to a total of 5', () => {
     expect(cats.length).toEqual(5);
+  });
+
+  they('each have a name', () => {
+    cats.forEach(cat => {
+      expect(cat.dataset.name).toBeDefined();
+
+      // must be a string with length > 0
+      expect(cat.dataset.name).toMatch(/.+/);
+    });
+  });
+
+  they('each have a src', () => {
+    cats.forEach(cat => {
+      expect(cat.dataset.src).toBeDefined();
+
+      // must be a string with length > 0
+      expect(cat.dataset.src).toMatch(/.+/);
+    });
+  });
+
+  they('each have a click count', () => {
+    cats.forEach(cat => {
+      expect(cat.dataset.count).toBeDefined();
+
+      // must be a non-NaN number
+      expect(typeof Number(cat.dataset.count)).toBe('number');
+      expect(Number(cat.dataset.count)).not.toBeNaN();
+    });
   });
 });
 
