@@ -8,6 +8,16 @@ hamburger.addEventListener('click', event => {
   sidebar.classList.toggle('sidebar-hidden');
 });
 
+// populate cat names in sidebar
+const sidebarCats = sidebar.querySelectorAll('li');
+sidebarCats.forEach(cat => {
+  // get the inner anchor tag
+  const clickableArea = cat.children[0];
+
+  // update its text
+  clickableArea.textContent = cat.dataset.name;
+});
+
 // give the cats names
 const cats = [...document.querySelectorAll('img')],
   catNames = ['Floor cat', 'Stunned cat'];
