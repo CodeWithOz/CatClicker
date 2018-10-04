@@ -65,6 +65,26 @@ describe('The sidebar', () => {
     sidebar.addEventListener('transitionend', testForHiddenMenu);
     hamburger.click();
   });
+
+  // test if sidebar hides when other parts of the page are clicked
+  it(`doesn't hide when unused lower sections are clicked`, () => {
+    // first show the sidebar
+    hamburger.click();
+    expect(sidebar.classList.contains('sidebar-hidden')).toBe(false);
+
+    /*
+     * then generate a click event on the menu itself
+     * I think this works because clicking the list items is
+     * actually clicking the anchor tag because the anchor tags
+     * occupy all the space in their parent `li`.
+     * Generating a click on the menu itself simulates clicking
+     * the lower segments.
+     */
+    sidebar.click();
+
+    // sidebar should still be showing
+    expect(sidebar.classList.contains('sidebar-hidden')).toBe(false);
+  });
 });
 
 /*
