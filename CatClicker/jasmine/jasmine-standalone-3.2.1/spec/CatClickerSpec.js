@@ -134,7 +134,7 @@ describe('A cat image', () => {
 
   it('has a name', () => {
     const title = image.previousElementSibling;
-    expect(title).toBeInstanceOf(HTMLParagraphElement);
+    expect(title).toBeInstanceOf(HTMLHeadingElement);
     expect(title.textContent).not.toEqual('');
   });
 
