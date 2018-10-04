@@ -107,6 +107,13 @@ describe('Items on the cat list', () => {
       expect(Number(cat.dataset.count)).not.toBeNaN();
     });
   });
+
+  they(`each display the cat's name`, () => {
+    cats.forEach(cat => {
+      const clickableArea = cat.children[0];
+      expect(clickableArea.textContent).toEqual(cat.dataset.name);
+    });
+  });
 });
 
 /*
