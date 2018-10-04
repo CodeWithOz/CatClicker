@@ -138,7 +138,6 @@ describe('A cat image', () => {
     expect(title.textContent).not.toEqual('');
   });
 
-  // ensure both have a counter
   it('has a click counter', () => {
     const counter = image.nextElementSibling.querySelector('.clicks');
     expect(counter).toBeInstanceOf(HTMLSpanElement);
