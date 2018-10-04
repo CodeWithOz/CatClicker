@@ -67,31 +67,20 @@ describe('The sidebar', () => {
   });
 
   // test if sidebar hides when other parts of the page are clicked
-  it(`doesn't hide when unused lower sections are clicked`, () => {
+  it(`hides when a cat is selected from the sidebar`, () => {
     // first show the sidebar
     hamburger.click();
     expect(sidebar.classList.contains('sidebar-hidden')).toBe(false);
 
-    /*
-     * then generate a click event on the menu itself
-     * I think this works because clicking the list items is
-     * actually clicking the anchor tag because the anchor tags
-     * occupy all the space in their parent `li`.
-     * Generating a click on the menu itself simulates clicking
-     * the lower segments.
-     */
-    sidebar.click();
+    const sidebarCats = [...sidebar.querySelectorAll('li')];
 
-    // sidebar should still be showing
-    expect(sidebar.classList.contains('sidebar-hidden')).toBe(false);
-  });
+    // randomly select a cat from the list
+    const cat = sidebarCats[Math.floor(Math.random() * sidebarCats.length)];
 
-  it('hides when any other part of the document is clicked', () => {
-    /*
-     * I can't test everything on the page so I have decided
-     * to use the body element
-     */
-    document.body.click();
+    // click the anchor tag inside
+    cat.children[0].click();
+
+    // sidebar should be hidden
     expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
   });
 });
