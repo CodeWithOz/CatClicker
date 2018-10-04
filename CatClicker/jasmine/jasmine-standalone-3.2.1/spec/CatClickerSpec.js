@@ -76,10 +76,6 @@ describe('Items on the cat list', () => {
   const sidebar = document.querySelector('.cats-menu'),
     cats = sidebar.querySelectorAll('li');
 
-  beforeEach(() => {
-    jasmine.addMatchers(customMatchers);
-  });
-
   they('add up to a total of 5', () => {
     expect(cats.length).toEqual(5);
   });
