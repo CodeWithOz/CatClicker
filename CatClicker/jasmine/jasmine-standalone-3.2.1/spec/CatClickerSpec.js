@@ -108,6 +108,16 @@ describe('Items on the cat list', () => {
     });
   });
 
+  they('each have a index property', () => {
+    cats.forEach(cat => {
+      expect(cat.dataset.index).toBeDefined();
+
+      // must be a non-NaN number
+      expect(typeof Number(cat.dataset.index)).toBe('number');
+      expect(Number(cat.dataset.index)).not.toBeNaN();
+    });
+  });
+
   they(`each display the cat's name`, () => {
     cats.forEach(cat => {
       const clickableArea = cat.children[0];
