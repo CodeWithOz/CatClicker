@@ -85,6 +85,15 @@ describe('The sidebar', () => {
     // sidebar should still be showing
     expect(sidebar.classList.contains('sidebar-hidden')).toBe(false);
   });
+
+  it('hides when any other part of the document is clicked', () => {
+    /*
+     * I can't test everything on the page so I have decided
+     * to use the body element
+     */
+    document.body.click();
+    expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
+  });
 });
 
 /*
