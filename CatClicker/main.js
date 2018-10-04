@@ -38,6 +38,9 @@ function loadCat(event) {
   title.textContent = cat.dataset.name;
   image.setAttribute('src', cat.dataset.src);
   countContainer.children[0].textContent = cat.dataset.count;
+
+  // this saves a reference to this cat's matching sidebar item
+  image.dataset.index = cat.dataset.index;
 }
 
 // show the first cat on page load
