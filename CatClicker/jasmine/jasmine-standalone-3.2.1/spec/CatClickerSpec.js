@@ -152,6 +152,13 @@ describe('A cat image', () => {
     const counter = image.nextElementSibling.querySelector('.clicks');
     expect(counter).toBeInstanceOf(HTMLSpanElement);
   });
+
+  it('has a reference to its sidebar cat', () => {
+    expect(image.dataset.index).toBeDefined();
+
+    // must be a non-empty string
+    expect(image.dataset.index).toMatch(/.+/);
+  });
 });
 
 /*
