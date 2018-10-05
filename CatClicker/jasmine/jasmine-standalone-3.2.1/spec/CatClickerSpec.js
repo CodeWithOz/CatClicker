@@ -66,7 +66,6 @@ describe('The sidebar', () => {
     hamburger.click();
   });
 
-  // test if sidebar hides when other parts of the page are clicked
   it(`hides when a cat is selected from the sidebar`, () => {
     // first show the sidebar
     hamburger.click();
