@@ -8,6 +8,12 @@ hamburger.addEventListener('click', event => {
   sidebar.classList.toggle('sidebar-hidden');
 });
 
+// hide sidebar when main display area is clicked
+const displayArea = document.querySelector('.cat-display');
+displayArea.addEventListener('click', event => {
+  sidebar.classList.add('sidebar-hidden');
+});
+
 // populate cat names in sidebar
 const sidebarCats = [...sidebar.querySelectorAll('li')];
 sidebarCats.forEach(cat => {
