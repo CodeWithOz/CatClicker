@@ -30,6 +30,9 @@ function loadCat(event) {
 
   event.preventDefault();
 
+  // hide the menu
+  sidebar.classList.add('sidebar-hidden');
+
   // get the parent that contains the necessary info
   const cat = target.parentElement;
 
