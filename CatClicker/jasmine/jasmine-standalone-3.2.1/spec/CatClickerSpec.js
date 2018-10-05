@@ -82,6 +82,19 @@ describe('The sidebar', () => {
     // sidebar should be hidden
     expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
   });
+
+  it(`hides when the display area (below navbar and not sidebar) is clicked`, () => {
+    // first show the sidebar
+    hamburger.click();
+    expect(sidebar.classList.contains('sidebar-hidden')).toBe(false);
+
+    // click the display area
+    const displayArea = document.querySelector('.cat-display');
+    displayArea.click();
+
+    // sidebar should be hidden
+    expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
+  });
 });
 
 /*
