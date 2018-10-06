@@ -32,6 +32,20 @@ describe('The model', () => {
 });
 
 /*
+ * This suite tests for completeness of each model entry
+ */
+describe('Each model entry', () => {
+  it('contains a name property', () => {
+    data.forEach(entry => {
+      expect(entry.name).toBeDefined();
+
+      // must be a non-empty string
+      expect(entry.name).toMatch(/.+/);
+    });
+  });
+});
+
+/*
  * This suite tests the menu's behavior
  */
 describe('The sidebar', () => {
