@@ -65,6 +65,23 @@ describe('Each model entry', () => {
 });
 
 /*
+ * This suite checks the functionality of the view
+ */
+describe('The `view` JS object', () => {
+  it('exists', () => {
+    expect(view).toBeDefined();
+  });
+
+  it('contains a `renderSidebar` method', () => {
+    expect(view.renderSidebar).toBeDefined();
+  });
+
+  it('contains a `renderDisplay` method', () => {
+    expect(view.renderDisplay).toBeDefined();
+  });
+});
+
+/*
  * This suite tests the menu's behavior
  */
 describe('The sidebar', () => {
