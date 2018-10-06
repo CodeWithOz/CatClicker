@@ -43,6 +43,25 @@ describe('Each model entry', () => {
       expect(entry.name).toMatch(/.+/);
     });
   });
+
+  it('contains a src property', () => {
+    data.forEach(entry => {
+      expect(entry.src).toBeDefined();
+
+      // must be a non-empty string
+      expect(entry.src).toMatch(/.+/);
+    });
+  });
+
+  it('contains a count property', () => {
+    data.forEach(entry => {
+      expect(entry.count).toBeDefined();
+
+      // must be a non-NaN number
+      expect(typeof entry.count).toBe('number');
+      expect(entry.count).not.toBeNaN('number');
+    });
+  });
 });
 
 /*
