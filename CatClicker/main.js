@@ -1,3 +1,11 @@
+const data = [
+  {},
+  {},
+  {},
+  {},
+  {},
+];
+
 const hamburger = document.querySelector('.hamburger a'),
   sidebar = document.querySelector('.cats-menu');
 
