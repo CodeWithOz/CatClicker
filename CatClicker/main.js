@@ -1,9 +1,19 @@
 const data = [
-  {},
-  {},
-  {},
-  {},
-  {},
+  {
+    name: 'Playful cat'
+  },
+  {
+    name: 'Staring cat'
+  },
+  {
+    name: 'Thoughtful cat'
+  },
+  {
+    name: 'Comfy cat'
+  },
+  {
+    name: 'Scared cat'
+  },
 ];
 
 const hamburger = document.querySelector('.hamburger a'),
