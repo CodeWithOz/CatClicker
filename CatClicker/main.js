@@ -26,6 +26,14 @@ const data = [
   },
 ];
 
+const view = {
+  // render the cat image on the main display
+  renderDisplay() {},
+
+  // render the sidebar
+  renderSidebar() {}
+};
+
 const hamburger = document.querySelector('.hamburger a'),
   sidebar = document.querySelector('.cats-menu');
 
