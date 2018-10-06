@@ -1,18 +1,28 @@
 const data = [
   {
-    name: 'Playful cat'
+    name: 'Playful cat',
+    src: 'cat.jpg',
+    count: 0
   },
   {
-    name: 'Staring cat'
+    name: 'Staring cat',
+    src: 'cat2.jpg',
+    count: 0
   },
   {
-    name: 'Thoughtful cat'
+    name: 'Thoughtful cat',
+    src: 'cat3.jpeg',
+    count: 0
   },
   {
-    name: 'Comfy cat'
+    name: 'Comfy cat',
+    src: 'cat4.jpg',
+    count: 0
   },
   {
-    name: 'Scared cat'
+    name: 'Scared cat',
+    src: 'cat5.jpg',
+    count: 0
   },
 ];
 
