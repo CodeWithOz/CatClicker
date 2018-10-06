@@ -17,6 +17,17 @@ const customMatchers = {
 };
 
 /*
+ * This suite ensures that the model functions as expected
+ */
+describe('The model', () => {
+  it('is an array of 5 items', () => {
+    expect(data).toBeDefined();
+    expect(data).toBeInstanceOf(Array);
+    expect(data.length).toBe(5);
+  });
+});
+
+/*
  * This suite tests the menu's behavior
  */
 describe('The sidebar', () => {
