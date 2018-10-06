@@ -20,6 +20,10 @@ const customMatchers = {
  * This suite ensures that the model functions as expected
  */
 describe('The model', () => {
+  beforeEach(() => {
+    jasmine.addMatchers(customMatchers);
+  });
+
   it('is an array of 5 items', () => {
     expect(data).toBeDefined();
     expect(data).toBeInstanceOf(Array);
