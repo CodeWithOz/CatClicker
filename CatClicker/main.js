@@ -1,30 +1,32 @@
-const data = [
-  {
-    name: 'Playful cat',
-    src: 'cat.jpg',
-    count: 0
-  },
-  {
-    name: 'Staring cat',
-    src: 'cat2.jpg',
-    count: 0
-  },
-  {
-    name: 'Thoughtful cat',
-    src: 'cat3.jpeg',
-    count: 0
-  },
-  {
-    name: 'Comfy cat',
-    src: 'cat4.jpg',
-    count: 0
-  },
-  {
-    name: 'Scared cat',
-    src: 'cat5.jpg',
-    count: 0
-  },
-];
+const data = {
+  cats : [
+    {
+      name: 'Playful cat',
+      src: 'cat.jpg',
+      count: 0
+    },
+    {
+      name: 'Staring cat',
+      src: 'cat2.jpg',
+      count: 0
+    },
+    {
+      name: 'Thoughtful cat',
+      src: 'cat3.jpeg',
+      count: 0
+    },
+    {
+      name: 'Comfy cat',
+      src: 'cat4.jpg',
+      count: 0
+    },
+    {
+      name: 'Scared cat',
+      src: 'cat5.jpg',
+      count: 0
+    },
+  ]
+};
 
 const view = {
   // render the cat image on the main display
