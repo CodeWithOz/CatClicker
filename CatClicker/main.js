@@ -29,6 +29,10 @@ const data = {
 
   getCat(index) {
     return this.cats[index];
+  },
+
+  getAllCats() {
+    return this.cats;
   }
 };
 
