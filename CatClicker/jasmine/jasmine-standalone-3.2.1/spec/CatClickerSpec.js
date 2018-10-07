@@ -24,10 +24,10 @@ describe('The model', () => {
     jasmine.addMatchers(customMatchers);
   });
 
-  it('is an array of 5 items', () => {
-    expect(data).toBeDefined();
-    expect(data).toBeInstanceOf(Array);
-    expect(data.length).toBe(5);
+  it('contains an array of 5 items', () => {
+    expect(data.cats).toBeDefined();
+    expect(data.cats).toBeInstanceOf(Array);
+    expect(data.cats.length).toBe(5);
   });
 });
 
