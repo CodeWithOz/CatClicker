@@ -29,6 +29,18 @@ describe('The model', () => {
     expect(data.cats).toBeInstanceOf(Array);
     expect(data.cats.length).toBe(5);
   });
+
+  it('has a getCat method that takes a number and returns an object', () => {
+    // get random index within the length of the array
+    const index = Math.floor(Math.random() * data.cats.length);
+
+    expect(data.getCat).toBeDefined();
+    expect(data.getCat(index)).toBeDefined();
+
+    // `typeof` returns 'object' for `null`
+    expect(data.getCat(index)).not.toBeNull();
+    expect(typeof data.getCat(index)).toEqual('object');
+  });
 });
 
 /*
