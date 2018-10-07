@@ -24,9 +24,15 @@ describe('The model', () => {
     jasmine.addMatchers(customMatchers);
   });
 
+  it('has a getAllCats method that returns an array of all the cats', () => {
+    expect(data.getAllCats).toBeDefined();
+    expect(data.getAllCats()).toBeInstanceOf(Array);
+    expect(data.getAllCats().length).toEqual(5);
+  });
+
   it('has a getCat method that takes a number and returns an object', () => {
     // get random index within the length of the array
-    const index = Math.floor(Math.random() * data.cats.length);
+    const index = Math.floor(Math.random() * data.getAllCats().length);
 
     expect(data.getCat).toBeDefined();
     expect(data.getCat(index)).toBeDefined();
@@ -34,12 +40,6 @@ describe('The model', () => {
     // `typeof` returns 'object' for `null`
     expect(data.getCat(index)).not.toBeNull();
     expect(typeof data.getCat(index)).toEqual('object');
-  });
-
-  it('has a getAllCats method that returns an array of all the cats', () => {
-    expect(data.getAllCats).toBeDefined();
-    expect(data.getAllCats()).toBeInstanceOf(Array);
-    expect(data.getAllCats().length).toEqual(5);
   });
 });
 
