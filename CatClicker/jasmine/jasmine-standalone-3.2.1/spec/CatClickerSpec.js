@@ -39,7 +39,7 @@ describe('The model', () => {
   it('has a getAllCats method that returns an array of all the cats', () => {
     expect(data.getAllCats).toBeDefined();
     expect(data.getAllCats()).toBeInstanceOf(Array);
-    expect(data.getAllCats().length).toEqual(data.cats.length);
+    expect(data.getAllCats().length).toEqual(5);
   });
 });
 
