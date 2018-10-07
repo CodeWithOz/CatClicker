@@ -44,34 +44,34 @@ describe('The model', () => {
 });
 
 /*
- * This suite tests for completeness of each model entry
+ * This suite tests for completeness of each cat in the model
  */
-describe('Each model entry', () => {
+describe('Each cat in the model', () => {
   it('contains a name property', () => {
-    data.forEach(entry => {
-      expect(entry.name).toBeDefined();
+    data.getAllCats().forEach(cat => {
+      expect(cat.name).toBeDefined();
 
       // must be a non-empty string
-      expect(entry.name).toMatch(/.+/);
+      expect(cat.name).toMatch(/.+/);
     });
   });
 
   it('contains a src property', () => {
-    data.forEach(entry => {
-      expect(entry.src).toBeDefined();
+    data.getAllCats().forEach(cat => {
+      expect(cat.src).toBeDefined();
 
       // must be a non-empty string
-      expect(entry.src).toMatch(/.+/);
+      expect(cat.src).toMatch(/.+/);
     });
   });
 
   it('contains a count property', () => {
-    data.forEach(entry => {
-      expect(entry.count).toBeDefined();
+    data.getAllCats().forEach(cat => {
+      expect(cat.count).toBeDefined();
 
       // must be a non-NaN number
-      expect(typeof entry.count).toBe('number');
-      expect(entry.count).not.toBeNaN('number');
+      expect(typeof cat.count).toBe('number');
+      expect(cat.count).not.toBeNaN('number');
     });
   });
 });
