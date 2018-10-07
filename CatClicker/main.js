@@ -1,5 +1,5 @@
 const data = {
-  cats : [
+  cats: [
     {
       name: 'Playful cat',
       src: 'cat.jpg',
@@ -25,7 +25,11 @@ const data = {
       src: 'cat5.jpg',
       count: 0
     },
-  ]
+  ],
+
+  getCat(index) {
+    return this.cats[index];
+  }
 };
 
 const view = {
