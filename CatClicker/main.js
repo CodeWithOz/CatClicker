@@ -1,5 +1,5 @@
-const data = {
-  cats: [
+const data = (() => {
+  const cats = [
     {
       name: 'Playful cat',
       src: 'cat.jpg',
@@ -24,17 +24,19 @@ const data = {
       name: 'Scared cat',
       src: 'cat5.jpg',
       count: 0
+    }
+  ];
+
+  return {
+    getCat(index) {
+      return cats[index];
     },
-  ],
 
-  getCat(index) {
-    return this.cats[index];
-  },
-
-  getAllCats() {
-    return this.cats;
-  }
-};
+    getAllCats() {
+      return cats;
+    }
+  };
+})();
 
 const view = {
   // render the cat image on the main display
