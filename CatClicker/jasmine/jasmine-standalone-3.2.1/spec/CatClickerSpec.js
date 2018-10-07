@@ -24,12 +24,6 @@ describe('The model', () => {
     jasmine.addMatchers(customMatchers);
   });
 
-  it('contains an array of 5 items', () => {
-    expect(data.cats).toBeDefined();
-    expect(data.cats).toBeInstanceOf(Array);
-    expect(data.cats.length).toBe(5);
-  });
-
   it('has a getCat method that takes a number and returns an object', () => {
     // get random index within the length of the array
     const index = Math.floor(Math.random() * data.cats.length);
