@@ -100,6 +100,12 @@ describe('The octopus', () => {
   it('contains an `init` method', () => {
     expect(octopus.init).toBeDefined();
   });
+
+  it('initializes the sidebar', () => {
+    spyOn(view, 'renderSidebar');
+    octopus.init();
+    expect(view.renderSidebar).toHaveBeenCalledTimes(1);
+  });
 });
 
 /*
