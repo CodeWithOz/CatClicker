@@ -46,6 +46,12 @@ const view = {
   renderSidebar() {}
 };
 
+const octopus = (() => {
+  return {
+    init() {}
+  };
+})();
+
 const hamburger = document.querySelector('.hamburger a'),
   sidebar = document.querySelector('.cats-menu');
 
