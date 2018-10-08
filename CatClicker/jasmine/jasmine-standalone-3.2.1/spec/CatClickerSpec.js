@@ -94,6 +94,15 @@ describe('The `view` JS object', () => {
 });
 
 /*
+ * This suite checks for the functionality of the octopus
+ */
+describe('The octopus', () => {
+  it('contains an `init` method', () => {
+    expect(octopus.init).toBeDefined();
+  });
+});
+
+/*
  * This suite tests the menu's behavior
  */
 describe('The sidebar', () => {
