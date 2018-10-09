@@ -48,7 +48,10 @@ const view = {
 
 const octopus = (() => {
   return {
-    init() {}
+    init() {
+      const cats = data.getAllCats();
+      view.renderSidebar(cats);
+    }
   };
 })();
 
