@@ -70,7 +70,17 @@ const octopus = (() => {
       view.renderSidebar(cats);
     },
 
-    loadCat(event) {}
+    loadCat(event) {
+      const { target } = event;
+
+      // exit if click is not from the list item anchor tag
+      if (target.tagName !== 'A') return;
+
+      event.preventDefault();
+
+      // hide the menu
+      sidebar.classList.add('sidebar-hidden');
+    }
   };
 })();
 
@@ -95,7 +105,7 @@ displayArea.addEventListener('click', event => {
 
 // display cat when its name is clicked in sidebar
 const imageDiv = document.querySelector('.cat-pic');
-sidebar.addEventListener('click', loadCat);
+sidebar.addEventListener('click', octopus.loadCat);
 
 // show the first cat on page load
 sidebarCats[0].children[0].click();
