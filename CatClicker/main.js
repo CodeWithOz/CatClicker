@@ -42,8 +42,25 @@ const view = {
   // render the cat image on the main display
   renderDisplay() {},
 
-  // render the sidebar
-  renderSidebar() {}
+  /**
+   * Render the sidebar
+   * @param {Array} cats List of cats to be rendered
+   * @returns {undefined}
+   */
+  renderSidebar(cats) {
+    const sidebarList = document.querySelector('.cats-menu ul'),
+      docFrag = document.createDocumentFragment();
+    cats.forEach((cat, index) => {
+      // create each list item
+      const entry = document.createElement('li');
+      entry.innerHTML = `<a href="#" data-index="${index}">${cat.name}</a>`;
+
+      docFrag.appendChild(entry);
+    });
+
+    // add the list to the DOM
+    sidebarList.appendChild(docFrag);
+  }
 };
 
 const octopus = (() => {
@@ -54,6 +71,9 @@ const octopus = (() => {
     }
   };
 })();
+
+// initiate the app
+octopus.init();
 
 const hamburger = document.querySelector('.hamburger a'),
   sidebar = document.querySelector('.cats-menu');
@@ -69,16 +89,6 @@ hamburger.addEventListener('click', event => {
 const displayArea = document.querySelector('.cat-display');
 displayArea.addEventListener('click', event => {
   sidebar.classList.add('sidebar-hidden');
-});
-
-// populate cat names in sidebar
-const sidebarCats = [...sidebar.querySelectorAll('li')];
-sidebarCats.forEach(cat => {
-  // get the inner anchor tag
-  const clickableArea = cat.children[0];
-
-  // update its text
-  clickableArea.textContent = cat.dataset.name;
 });
 
 // display cat when its name is clicked in sidebar
