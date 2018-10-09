@@ -80,6 +80,19 @@ const octopus = (() => {
 
       // hide the menu
       sidebar.classList.add('sidebar-hidden');
+
+      // get the necessary info from the model
+      const index = target.dataset.index,
+        cat = data.getCat(index);
+
+      // populate the main image display
+      const [title, image, countContainer] = [...imageDiv.children[0].children];
+      title.textContent = cat.name;
+      image.setAttribute('src', cat.src);
+      countContainer.children[0].textContent = cat.count;
+
+      // this saves a reference to this cat's matching sidebar item
+      image.dataset.index = index;
     }
   };
 })();
