@@ -190,6 +190,33 @@ describe('Selecting a cat from the sidebar', () => {
     // sidebar should be hidden
     expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
   });
+
+  it('populates the cat display area', () => {
+    // first show the sidebar
+    hamburger.click();
+
+    // randomly select a cat from the list
+    const sidebarCats = [...sidebar.querySelectorAll('li')];
+    const cat = sidebarCats[Math.floor(Math.random() * sidebarCats.length)];
+
+    // click the anchor tag inside
+    cat.children[0].click();
+
+    // ensure that the cat display area is populated
+    const displayArea = document.querySelector('.cat-pic'),
+      title = displayArea.querySelector('h4'),
+      img = displayArea.querySelector('img'),
+      counter = displayArea.querySelector('span');
+
+    // must be non-empty strings
+    expect(title.textContent).toMatch(/.+/);
+    expect(img.getAttribute('src')).toMatch(/.+/);
+
+    // must be a non-NaN number
+    const count = Number(counter.textContent);
+    expect(typeof count).toEqual('number');
+    expect(count).not.toBeNaN();
+  });
 });
 
 /*
