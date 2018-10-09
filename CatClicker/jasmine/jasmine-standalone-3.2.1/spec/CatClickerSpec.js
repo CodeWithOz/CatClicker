@@ -156,7 +156,25 @@ describe('The sidebar', () => {
     hamburger.click();
   });
 
-  it(`hides when a cat is selected from the sidebar`, () => {
+  it(`hides when the display area (below navbar and not sidebar) is clicked`, () => {
+    // first show the sidebar
+    hamburger.click();
+    expect(sidebar.classList.contains('sidebar-hidden')).toBe(false);
+
+    // click the display area
+    const displayArea = document.querySelector('.cat-display');
+    displayArea.click();
+
+    // sidebar should be hidden
+    expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
+  });
+});
+
+describe('Selecting a cat from the sidebar', () => {
+  const sidebar = document.querySelector('.cats-menu'),
+    hamburger = document.querySelector('.hamburger a');
+
+  it(`hides the sidebar`, () => {
     // first show the sidebar
     hamburger.click();
     expect(sidebar.classList.contains('sidebar-hidden')).toBe(false);
@@ -168,19 +186,6 @@ describe('The sidebar', () => {
 
     // click the anchor tag inside
     cat.children[0].click();
-
-    // sidebar should be hidden
-    expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
-  });
-
-  it(`hides when the display area (below navbar and not sidebar) is clicked`, () => {
-    // first show the sidebar
-    hamburger.click();
-    expect(sidebar.classList.contains('sidebar-hidden')).toBe(false);
-
-    // click the display area
-    const displayArea = document.querySelector('.cat-display');
-    displayArea.click();
 
     // sidebar should be hidden
     expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
