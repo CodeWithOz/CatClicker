@@ -100,6 +100,10 @@ describe('The octopus', () => {
   it('contains an `init` method', () => {
     expect(octopus.init).toBeDefined();
   });
+
+  it('contains a `loadCat` method', () => {
+    expect(octopus.loadCat).toBeDefined();
+  });
 });
 
 /*
