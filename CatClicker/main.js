@@ -44,8 +44,8 @@ const view = {
   imageDiv: document.querySelector('.cat-pic'),
 
   // render the cat image on the main display
-  renderDisplay(cat) {
-    const [title, image, countContainer] = [...view.imageDiv.children[0].children];
+  renderDisplay(cat, index) {
+    const [title, image, countContainer] = [...this.imageDiv.children[0].children];
     title.textContent = cat.name;
     image.setAttribute('src', cat.src);
     countContainer.children[0].textContent = cat.count;
@@ -78,9 +78,13 @@ const view = {
 const octopus = (() => {
   return {
     init() {
+      // render the main display
+      const firstCat = data.getCat(0);
+      view.renderDisplay(firstCat);
+
       // render the sidebar
       const cats = data.getAllCats();
-      view.renderSidebar(cats);
+      view.renderSidebar(cats, 0);
     },
 
     handleCatSelection(event) {
@@ -103,7 +107,7 @@ const octopus = (() => {
       const cat = data.getCat(index);
 
       // populate the main image display
-      view.renderDisplay(cat);
+      view.renderDisplay(cat, index);
     }
   };
 })();
@@ -126,9 +130,6 @@ displayArea.addEventListener('click', event => {
 
 // display cat when its name is clicked in sidebar
 view.sidebar.addEventListener('click', octopus.handleCatSelection);
-
-// show the first cat on page load
-sidebarCats[0].children[0].click();
 
 // track clicks on the image
 view.imageDiv.addEventListener('click', event => {
