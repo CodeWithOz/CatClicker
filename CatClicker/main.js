@@ -70,7 +70,7 @@ const octopus = (() => {
       view.renderSidebar(cats);
     },
 
-    loadCat(event) {
+    handleCatSelection(event) {
       const { target } = event;
 
       // exit if click is not from the list item anchor tag
@@ -81,9 +81,13 @@ const octopus = (() => {
       // hide the menu
       sidebar.classList.add('sidebar-hidden');
 
+      // display the cat
+      loadCat(target.dataset.index);
+    },
+
+    loadCat(index) {
       // get the necessary info from the model
-      const index = target.dataset.index,
-        cat = data.getCat(index);
+      const cat = data.getCat(index);
 
       // populate the main image display
       const [title, image, countContainer] = [...imageDiv.children[0].children];
@@ -118,7 +122,7 @@ displayArea.addEventListener('click', event => {
 
 // display cat when its name is clicked in sidebar
 const imageDiv = document.querySelector('.cat-pic');
-sidebar.addEventListener('click', octopus.loadCat);
+sidebar.addEventListener('click', octopus.handleCatSelection);
 
 // show the first cat on page load
 sidebarCats[0].children[0].click();
