@@ -43,6 +43,11 @@ const view = {
   sidebar: document.querySelector('.cats-menu'),
   imageDiv: document.querySelector('.cat-pic'),
 
+  // get the list items in the sidebar
+  getSidebarItems() {
+    return [...this.sidebar.querySelectorAll('li')];
+  },
+
   // render the cat image on the main display
   renderDisplay(cat, index) {
     const [title, image, countContainer] = [...this.imageDiv.children[0].children];
@@ -147,6 +152,8 @@ view.imageDiv.addEventListener('click', event => {
   // on-page counter
   counter.textContent = curClicks;
   // sidebar counter
-  const sidebarCat = sidebarCats.filter(cat => cat.dataset.index === target.dataset.index)[0];
+  const sidebarCat = view.getSidebarItems().filter(cat => {
+    return cat.dataset.index === target.dataset.index[0];
+  });
   sidebarCat.dataset.count = curClicks;
 });
