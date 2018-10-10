@@ -43,17 +43,20 @@ describe('The model', () => {
   });
 
   it(
-    'has an incrementCount method that increments the click count for a specified cat',
+    'has an updateCount method that increments the click count for a specified cat',
     () => {
       // randomly select a cat and get its current count
       const index = Math.floor(Math.random() * data.getAllCats().length);
       const curClicks = data.getCat(index).count;
 
       // increment count
-      data.incrementCount(index, curClicks + 1);
+      data.updateCount(index, curClicks + 1);
 
       // ensure that the count was incremented
       expect(data.getCat(index).count).toEqual(curClicks + 1);
+
+      // undo this increment so the app functions normally after testing
+      data.updateCount(index, curClicks + 1);
     }
   );
 });

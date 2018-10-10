@@ -36,7 +36,7 @@ const data = (() => {
       return cats;
     },
 
-    incrementCount(index, newCount) {
+    updateCount(index, newCount) {
       cats[index].count = newCount;
     }
   };
