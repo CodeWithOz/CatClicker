@@ -118,14 +118,12 @@ describe('The octopus', () => {
  * This suite tests the menu's behavior
  */
 describe('The sidebar', () => {
-  const sidebar = document.querySelector('.cats-menu'),
-    getSidebarRect = () => sidebar.getBoundingClientRect(),
-    hamburger = document.querySelector('.hamburger a');
+  const getSidebarRect = () => view.sidebar.getBoundingClientRect();
 
   // ensure it is hidden by default
   it('is hidden by default', () => {
     const sidebarRect = getSidebarRect();
-    expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
+    expect(view.sidebar.classList.contains('sidebar-hidden')).toBe(true);
     expect(sidebarRect.right).toBeLessThanOrEqual(0);
   });
 
@@ -137,14 +135,14 @@ describe('The sidebar', () => {
       expect(sidebarRect.right).toEqual(sidebarRect.width);
 
       // remove the event listener
-      sidebar.removeEventListener('transitionend', testForShownMenu);
+      view.sidebar.removeEventListener('transitionend', testForShownMenu);
 
       // signal async completion
       done();
     };
 
-    sidebar.addEventListener('transitionend', testForShownMenu);
-    hamburger.click();
+    view.sidebar.addEventListener('transitionend', testForShownMenu);
+    view.hamburger.click();
   });
 
   it('hides on second hamburger click', (done) => {
@@ -154,40 +152,37 @@ describe('The sidebar', () => {
       expect(sidebarRect.right).toBeLessThan(0);
 
       // remove the event listener
-      sidebar.removeEventListener('transitionend', testForHiddenMenu);
+      view.sidebar.removeEventListener('transitionend', testForHiddenMenu);
 
       // signal async completion
       done();
     };
 
-    sidebar.addEventListener('transitionend', testForHiddenMenu);
-    hamburger.click();
+    view.sidebar.addEventListener('transitionend', testForHiddenMenu);
+    view.hamburger.click();
   });
 
   it(`hides when the display area (below navbar and not sidebar) is clicked`, () => {
     // first show the sidebar
-    hamburger.click();
-    expect(sidebar.classList.contains('sidebar-hidden')).toBe(false);
+    view.hamburger.click();
+    expect(view.sidebar.classList.contains('sidebar-hidden')).toBe(false);
 
     // click the display area
     const displayArea = document.querySelector('.cat-display');
     displayArea.click();
 
     // sidebar should be hidden
-    expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
+    expect(view.sidebar.classList.contains('sidebar-hidden')).toBe(true);
   });
 });
 
 describe('Selecting a cat from the sidebar', () => {
-  const sidebar = document.querySelector('.cats-menu'),
-    hamburger = document.querySelector('.hamburger a');
-
   it(`hides the sidebar`, () => {
     // first show the sidebar
-    hamburger.click();
-    expect(sidebar.classList.contains('sidebar-hidden')).toBe(false);
+    view.hamburger.click();
+    expect(view.sidebar.classList.contains('sidebar-hidden')).toBe(false);
 
-    const sidebarCats = [...sidebar.querySelectorAll('li')];
+    const sidebarCats = [...view.sidebar.querySelectorAll('li')];
 
     // randomly select a cat from the list
     const cat = sidebarCats[Math.floor(Math.random() * sidebarCats.length)];
@@ -196,15 +191,15 @@ describe('Selecting a cat from the sidebar', () => {
     cat.children[0].click();
 
     // sidebar should be hidden
-    expect(sidebar.classList.contains('sidebar-hidden')).toBe(true);
+    expect(view.sidebar.classList.contains('sidebar-hidden')).toBe(true);
   });
 
   it('populates the cat display area', () => {
     // first show the sidebar
-    hamburger.click();
+    view.hamburger.click();
 
     // randomly select a cat from the list
-    const sidebarCats = [...sidebar.querySelectorAll('li')];
+    const sidebarCats = [...view.sidebar.querySelectorAll('li')];
     const cat = sidebarCats[Math.floor(Math.random() * sidebarCats.length)];
 
     // click the anchor tag inside
@@ -232,8 +227,7 @@ describe('Selecting a cat from the sidebar', () => {
  * contain the necessary info
  */
 describe('Items on the cat list', () => {
-  const sidebar = document.querySelector('.cats-menu'),
-    cats = [...sidebar.querySelectorAll('li')];
+  const cats = [...view.sidebar.querySelectorAll('li')];
 
   they('add up to a total of 5', () => {
     expect(cats.length).toEqual(5);
@@ -326,9 +320,8 @@ describe('Clicking the image', () => {
       expect(newCount).toEqual(updatedClicks);
 
       // sidebar counter
-      const sidebar = document.querySelector('.cats-menu'),
-        selectorString = `li[data-index="${target.dataset.index}"]`,
-        sidebarCat = sidebar.querySelector(selectorString);
+      const selectorString = `li[data-index="${target.dataset.index}"]`,
+        sidebarCat = view.sidebar.querySelector(selectorString);
 
       /*
        * Note that the dataset property stores all info as
