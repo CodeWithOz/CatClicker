@@ -93,6 +93,16 @@ const octopus = (() => {
       view.renderSidebar(cats, 0);
     },
 
+    handleDisplayAreaClick(event) {
+      view.sidebar.classList.add('sidebar-hidden');
+    },
+
+    handleHamburgerClick(event) {
+      event.preventDefault();
+
+      view.sidebar.classList.toggle('sidebar-hidden');
+    },
+
     handleCatSelection(event) {
       const { target } = event;
 
@@ -106,6 +116,27 @@ const octopus = (() => {
 
       // display the cat
       octopus.loadCat(target.dataset.index);
+    },
+
+    handleImageClick(event) {
+      const { target } = event;
+
+      // exit if click is not from an image
+      if (target.tagName !== 'IMG') return;
+
+      // get and increment count
+      const counter = target.nextElementSibling.querySelector('.clicks');
+      let curClicks = Number(counter.textContent);
+      curClicks++;
+
+      // update counter text
+      // on-page counter
+      counter.textContent = curClicks;
+      // sidebar counter
+      const sidebarCat = view.getSidebarItems().filter(cat => {
+        return cat.dataset.index === target.dataset.index[0];
+      });
+      sidebarCat.dataset.count = curClicks;
     },
 
     loadCat(index) {
@@ -122,38 +153,13 @@ const octopus = (() => {
 octopus.init();
 
 // handle hamburger clicks
-view.hamburger.addEventListener('click', event => {
-  event.preventDefault();
-
-  view.sidebar.classList.toggle('sidebar-hidden');
-});
+view.hamburger.addEventListener('click', octopus.handleHamburgerClick);
 
 // hide sidebar when main display area is clicked
-view.displayArea.addEventListener('click', event => {
-  view.sidebar.classList.add('sidebar-hidden');
-});
+view.displayArea.addEventListener('click', octopus.handleDisplayAreaClick);
 
 // display cat when its name is clicked in sidebar
 view.sidebar.addEventListener('click', octopus.handleCatSelection);
 
 // track clicks on the image
-view.imageDiv.addEventListener('click', event => {
-  const { target } = event;
-
-  // exit if click is not from an image
-  if (target.tagName !== 'IMG') return;
-
-  // get and increment count
-  const counter = target.nextElementSibling.querySelector('.clicks');
-  let curClicks = Number(counter.textContent);
-  curClicks++;
-
-  // update counter text
-  // on-page counter
-  counter.textContent = curClicks;
-  // sidebar counter
-  const sidebarCat = view.getSidebarItems().filter(cat => {
-    return cat.dataset.index === target.dataset.index[0];
-  });
-  sidebarCat.dataset.count = curClicks;
-});
+view.imageDiv.addEventListener('click', octopus.handleImageClick);
