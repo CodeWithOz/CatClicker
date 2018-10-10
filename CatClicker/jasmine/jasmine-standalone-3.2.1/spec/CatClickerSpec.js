@@ -99,6 +99,10 @@ describe('The `view` JS object', () => {
   it('contains a `hamburger` property', () => {
     expect(view.hamburger).toBeDefined();
   });
+
+  it('contains an `imageDiv` property', () => {
+    expect(view.imageDiv).toBeDefined();
+  });
 });
 
 /*
