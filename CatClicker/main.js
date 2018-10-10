@@ -39,6 +39,9 @@ const data = (() => {
 })();
 
 const view = {
+  hamburger: document.querySelector('.hamburger a'),
+  sidebar: document.querySelector('.cats-menu'),
+
   // render the cat image on the main display
   renderDisplay(cat) {
     const [title, image, countContainer] = [...imageDiv.children[0].children];
@@ -88,7 +91,7 @@ const octopus = (() => {
       event.preventDefault();
 
       // hide the menu
-      sidebar.classList.add('sidebar-hidden');
+      view.sidebar.classList.add('sidebar-hidden');
 
       // display the cat
       loadCat(target.dataset.index);
@@ -107,25 +110,22 @@ const octopus = (() => {
 // initiate the app
 octopus.init();
 
-const hamburger = document.querySelector('.hamburger a'),
-  sidebar = document.querySelector('.cats-menu');
-
 // handle hamburger clicks
-hamburger.addEventListener('click', event => {
+view.hamburger.addEventListener('click', event => {
   event.preventDefault();
 
-  sidebar.classList.toggle('sidebar-hidden');
+  view.sidebar.classList.toggle('sidebar-hidden');
 });
 
 // hide sidebar when main display area is clicked
 const displayArea = document.querySelector('.cat-display');
 displayArea.addEventListener('click', event => {
-  sidebar.classList.add('sidebar-hidden');
+  view.sidebar.classList.add('sidebar-hidden');
 });
 
 // display cat when its name is clicked in sidebar
 const imageDiv = document.querySelector('.cat-pic');
-sidebar.addEventListener('click', octopus.handleCatSelection);
+view.sidebar.addEventListener('click', octopus.handleCatSelection);
 
 // show the first cat on page load
 sidebarCats[0].children[0].click();
