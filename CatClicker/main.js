@@ -42,6 +42,7 @@ const view = {
   hamburger: document.querySelector('.hamburger a'),
   sidebar: document.querySelector('.cats-menu'),
   imageDiv: document.querySelector('.cat-pic'),
+  displayArea: document.querySelector('.cat-display'),
 
   // get the list items in the sidebar
   getSidebarItems() {
@@ -128,8 +129,7 @@ view.hamburger.addEventListener('click', event => {
 });
 
 // hide sidebar when main display area is clicked
-const displayArea = document.querySelector('.cat-display');
-displayArea.addEventListener('click', event => {
+view.displayArea.addEventListener('click', event => {
   view.sidebar.classList.add('sidebar-hidden');
 });
 
