@@ -99,7 +99,7 @@ const octopus = (() => {
       view.sidebar.classList.add('sidebar-hidden');
 
       // display the cat
-      this.loadCat(target.dataset.index);
+      octopus.loadCat(target.dataset.index);
     },
 
     loadCat(index) {
