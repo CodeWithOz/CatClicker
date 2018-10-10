@@ -91,6 +91,14 @@ describe('The `view` JS object', () => {
   it('contains a `renderDisplay` method', () => {
     expect(view.renderDisplay).toBeDefined();
   });
+
+  it('contains a `sidebar` property', () => {
+    expect(view.sidebar).toBeDefined();
+  });
+
+  it('contains a `hamburger` property', () => {
+    expect(view.hamburger).toBeDefined();
+  });
 });
 
 /*
