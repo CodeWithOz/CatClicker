@@ -338,50 +338,21 @@ describe('A cat image', () => {
  */
 describe('Clicking the image', () => {
   beforeEach(() => {
-    curClicks = 0;
     image = document.querySelector('img');
-
-    // record the current clicks for each image
-    const counter = image.nextElementSibling.querySelector('.clicks');
-    curClicks = Number(counter.textContent);
   });
 
-  it('increments its counters', done => {
-    const testForIncrement = event => {
-      const { target } = event;
+  it('increments the counters', () => {
+    // get the current count on the page
+    const counter = image.nextElementSibling.querySelector('.clicks'),
+      curClicks = Number(counter.textContent);
 
-      // exit if click is not from an image
-      if (target.tagName !== 'IMG') return;
-
-      // update the click count
-      const updatedClicks = curClicks + 1;
-
-      // on-page counter
-      const counter = target.nextElementSibling.querySelector('.clicks'),
-        newCount = Number(counter.textContent);
-      expect(newCount).toEqual(updatedClicks);
-
-      // sidebar counter
-      const selectorString = `li[data-index="${target.dataset.index}"]`,
-        sidebarCat = view.sidebar.querySelector(selectorString);
-
-      /*
-       * Note that the dataset property stores all info as
-       * strings (in a DOMStringMap object).
-       * So the `count` property must be converted back to a number for testing.
-       */
-      expect(Number(sidebarCat.dataset.count)).toEqual(updatedClicks);
-
-      // remove this event listener
-      view.imageDiv.removeEventListener('click', testForIncrement);
-
-      // signal async completion
-      done();
-    };
-
-    // check for increment after image has been clicked
-    view.imageDiv.addEventListener('click', testForIncrement);
-
+    // click on the image
     image.click();
+
+    // get the new count
+    const newCount = Number(counter.textContent);
+
+    // test for increment
+    expect(newCount).toEqual(curClicks + 1);
   });
 });
