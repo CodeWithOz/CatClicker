@@ -304,8 +304,6 @@ describe('Clicking the image', () => {
     // record the current clicks for each image
     const counter = image.nextElementSibling.querySelector('.clicks');
     curClicks = Number(counter.textContent);
-
-    imgContainer = document.querySelector('.cat-pic');
   });
 
   it('increments its counters', done => {
@@ -335,14 +333,14 @@ describe('Clicking the image', () => {
       expect(Number(sidebarCat.dataset.count)).toEqual(updatedClicks);
 
       // remove this event listener
-      imgContainer.removeEventListener('click', testForIncrement);
+      view.imageDiv.removeEventListener('click', testForIncrement);
 
       // signal async completion
       done();
     };
 
     // check for increment after image has been clicked
-    imgContainer.addEventListener('click', testForIncrement);
+    view.imageDiv.addEventListener('click', testForIncrement);
 
     image.click();
   });
