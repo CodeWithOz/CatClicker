@@ -34,6 +34,10 @@ const data = (() => {
 
     getAllCats() {
       return cats;
+    },
+
+    incrementCount(index, newCount) {
+      cats[index].count = newCount;
     }
   };
 })();
