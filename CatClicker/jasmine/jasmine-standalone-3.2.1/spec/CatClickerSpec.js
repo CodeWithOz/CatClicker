@@ -180,8 +180,7 @@ describe('The sidebar', () => {
     expect(view.sidebar.classList.contains('sidebar-hidden')).toBe(false);
 
     // click the display area
-    const displayArea = document.querySelector('.cat-display');
-    displayArea.click();
+    view.displayArea.click();
 
     // sidebar should be hidden
     expect(view.sidebar.classList.contains('sidebar-hidden')).toBe(true);
@@ -218,10 +217,9 @@ describe('Selecting a cat from the sidebar', () => {
     cat.children[0].click();
 
     // ensure that the cat display area is populated
-    const displayArea = document.querySelector('.cat-pic'),
-      title = displayArea.querySelector('h4'),
-      img = displayArea.querySelector('img'),
-      counter = displayArea.querySelector('span');
+    const title = view.imageDiv.querySelector('h4'),
+      img = view.imageDiv.querySelector('img'),
+      counter = view.imageDiv.querySelector('span');
 
     // must be non-empty strings
     expect(title.textContent).toMatch(/.+/);
