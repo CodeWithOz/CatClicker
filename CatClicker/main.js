@@ -94,7 +94,7 @@ const octopus = (() => {
       view.sidebar.classList.add('sidebar-hidden');
 
       // display the cat
-      loadCat(target.dataset.index);
+      this.loadCat(target.dataset.index);
     },
 
     loadCat(index) {
