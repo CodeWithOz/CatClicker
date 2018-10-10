@@ -41,10 +41,11 @@ const data = (() => {
 const view = {
   hamburger: document.querySelector('.hamburger a'),
   sidebar: document.querySelector('.cats-menu'),
+  imageDiv: document.querySelector('.cat-pic'),
 
   // render the cat image on the main display
   renderDisplay(cat) {
-    const [title, image, countContainer] = [...imageDiv.children[0].children];
+    const [title, image, countContainer] = [...view.imageDiv.children[0].children];
     title.textContent = cat.name;
     image.setAttribute('src', cat.src);
     countContainer.children[0].textContent = cat.count;
@@ -124,14 +125,13 @@ displayArea.addEventListener('click', event => {
 });
 
 // display cat when its name is clicked in sidebar
-const imageDiv = document.querySelector('.cat-pic');
 view.sidebar.addEventListener('click', octopus.handleCatSelection);
 
 // show the first cat on page load
 sidebarCats[0].children[0].click();
 
 // track clicks on the image
-imageDiv.addEventListener('click', event => {
+view.imageDiv.addEventListener('click', event => {
   const { target } = event;
 
   // exit if click is not from an image
