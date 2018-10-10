@@ -124,6 +124,22 @@ describe('The octopus', () => {
   it('contains a `loadCat` method', () => {
     expect(octopus.loadCat).toBeDefined();
   });
+
+  it('contains a `handleHamburgerClick` method', () => {
+    expect(octopus.handleHamburgerClick).toBeDefined();
+  });
+
+  it('contains a `handleDisplayAreaClick` method', () => {
+    expect(octopus.handleDisplayAreaClick).toBeDefined();
+  });
+
+  it('contains a `handleCatSelection` method', () => {
+    expect(octopus.handleCatSelection).toBeDefined();
+  });
+
+  it('contains a `handleImageClick` method', () => {
+    expect(octopus.handleImageClick).toBeDefined();
+  });
 });
 
 /*
