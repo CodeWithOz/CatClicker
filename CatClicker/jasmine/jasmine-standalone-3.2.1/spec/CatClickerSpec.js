@@ -107,6 +107,10 @@ describe('The `view` JS object', () => {
   it('contains a `getSidebarItems` method', () => {
     expect(view.getSidebarItems).toBeDefined();
   });
+
+  it('contains a `displayArea` property', () => {
+    expect(view.displayArea).toBeDefined();
+  });
 });
 
 /*
