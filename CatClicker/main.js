@@ -40,7 +40,15 @@ const data = (() => {
 
 const view = {
   // render the cat image on the main display
-  renderDisplay() {},
+  renderDisplay(cat) {
+    const [title, image, countContainer] = [...imageDiv.children[0].children];
+    title.textContent = cat.name;
+    image.setAttribute('src', cat.src);
+    countContainer.children[0].textContent = cat.count;
+
+    // this saves a reference to this cat's matching sidebar item
+    image.dataset.index = index;
+  },
 
   /**
    * Render the sidebar
@@ -66,6 +74,7 @@ const view = {
 const octopus = (() => {
   return {
     init() {
+      // render the sidebar
       const cats = data.getAllCats();
       view.renderSidebar(cats);
     },
@@ -90,13 +99,7 @@ const octopus = (() => {
       const cat = data.getCat(index);
 
       // populate the main image display
-      const [title, image, countContainer] = [...imageDiv.children[0].children];
-      title.textContent = cat.name;
-      image.setAttribute('src', cat.src);
-      countContainer.children[0].textContent = cat.count;
-
-      // this saves a reference to this cat's matching sidebar item
-      image.dataset.index = index;
+      view.renderDisplay(cat);
     }
   };
 })();
