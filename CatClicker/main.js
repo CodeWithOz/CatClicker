@@ -128,19 +128,14 @@ const octopus = (() => {
       // exit if click is not from an image
       if (target.tagName !== 'IMG') return;
 
-      // get and increment count
+      // increment count in the model
+      const { index } = target.dataset;
       const counter = target.nextElementSibling.querySelector('.clicks');
-      let curClicks = Number(counter.textContent);
-      curClicks++;
+      data.updateCount(index, Number(counter.textContent) + 1);
 
-      // update counter text
-      // on-page counter
-      counter.textContent = curClicks;
-      // sidebar counter
-      const sidebarCat = view.getSidebarItems().filter(cat => {
-        return cat.dataset.index === target.dataset.index[0];
-      });
-      sidebarCat.dataset.count = curClicks;
+      // render the cat again to update the count
+      const clickedCat = data.getCat(index);
+      view.renderDisplay(clickedCat, index);
     },
 
     loadCat(index) {
