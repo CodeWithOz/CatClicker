@@ -103,6 +103,10 @@ describe('The `view` JS object', () => {
   it('contains an `imageDiv` property', () => {
     expect(view.imageDiv).toBeDefined();
   });
+
+  it('contains a `getSidebarItems` method', () => {
+    expect(view.getSidebarItems).toBeDefined();
+  });
 });
 
 /*
