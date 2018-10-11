@@ -162,6 +162,21 @@ const octopus = (() => {
 
       // populate the main image display
       view.renderDisplay(cat, index);
+    },
+
+    // get to-show status
+    getToShow() {
+      return data.toShow();
+    },
+
+    // toggle to-show status
+    toggleToShow() {
+      data.toggleToShow();
+    },
+
+    // set to-show status
+    setToShow(newVal) {
+      data.setToShow(newVal);
     }
   };
 })();
