@@ -100,6 +100,19 @@ const view = {
 
     // add the list to the DOM
     sidebarList.appendChild(docFrag);
+  },
+
+  // render the admin sidebar
+  renderAdminSidebar() {
+    // render the sidebar
+    if (octopus.getToShow()) {
+      view.adminSidebar.classList.remove('admin-hidden');
+    } else {
+      view.adminSidebar.classList.add('admin-hidden');
+    }
+
+    // toggle status for the next render
+    octopus.toggleToShow();
   }
 };
 
