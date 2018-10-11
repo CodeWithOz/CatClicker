@@ -161,9 +161,9 @@ describe('The octopus', () => {
 });
 
 /*
- * This suite tests the menu's behavior
+ * This suite tests the cat sidebar's behavior
  */
-describe('The sidebar', () => {
+describe('The cat sidebar', () => {
   const getSidebarRect = () => view.sidebar.getBoundingClientRect();
 
   // ensure it is hidden by default
