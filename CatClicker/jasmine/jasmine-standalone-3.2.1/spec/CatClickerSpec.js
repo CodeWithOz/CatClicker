@@ -204,6 +204,18 @@ describe('The octopus', () => {
   it('contains a `handleImageClick` method', () => {
     expect(octopus.handleImageClick).toBeDefined();
   });
+
+  it('contains a getToShow method', () => {
+    expect(octopus.getToShow).toBeDefined();
+  });
+
+  it('contains a toggleToShow method', () => {
+    expect(octopus.toggleToShow).toBeDefined();
+  });
+
+  it('contains a setToShow method', () => {
+    expect(octopus.setToShow).toBeDefined();
+  });
 });
 
 /*
