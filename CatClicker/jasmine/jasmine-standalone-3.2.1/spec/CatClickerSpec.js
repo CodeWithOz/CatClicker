@@ -129,6 +129,14 @@ describe('The `view` JS object', () => {
   it('contains a `displayArea` property', () => {
     expect(view.displayArea).toBeDefined();
   });
+
+  it('contains an `adminSidebar` property', () => {
+    expect(view.adminSidebar).toBeDefined();
+  });
+
+  it('contains an `adminBtn` property', () => {
+    expect(view.adminBtn).toBeDefined();
+  });
 });
 
 /*
