@@ -67,14 +67,6 @@ h1 {
   padding: 20px;
 }
 
-.cats-menu a {
-  /*
-   * create some space above and below the hamburger
-   * this space is clickable because of `display: block` earlier
-   */
-  padding: 0.5em 0;
-}
-
 main {
   /* allow custom positioning of child elements */
   position: relative;
@@ -115,6 +107,14 @@ main {
 .cats-menu li:last-child {
   /* the last list item needs a bottom border */
   border-bottom: 1px dashed var(--menu-text-color);
+}
+
+.cats-menu a {
+  /*
+   * create some space above and below the hamburger
+   * this space is clickable because of `display: block` earlier
+   */
+  padding: 0.5em 0;
 }
 
 .cat-display {
