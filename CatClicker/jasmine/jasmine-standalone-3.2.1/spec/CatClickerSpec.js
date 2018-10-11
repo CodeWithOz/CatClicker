@@ -136,6 +136,9 @@ describe('Each cat in the model', () => {
  * This suite checks the functionality of the view
  */
 describe('The `view` JS object', () => {
+  // I couldn't figure out a way to test the methods
+  // because their results are tested elsewhere
+
   it('exists', () => {
     expect(view).toBeDefined();
   });
@@ -174,6 +177,10 @@ describe('The `view` JS object', () => {
 
   it('contains an `adminBtn` property', () => {
     expect(view.adminBtn).toBeDefined();
+  });
+
+  it('contains a renderAdminSidebar method', () => {
+    expect(view.renderAdminSidebar).toBeDefined();
   });
 });
 
