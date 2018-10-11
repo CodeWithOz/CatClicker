@@ -72,11 +72,11 @@ main {
   position: relative;
 }
 
-.cats-menu {
-  /* position in the top left of the body */
+.cats-menu,
+.admin-sidebar {
+  /* position at the top of the body */
   position: absolute;
   top: 0;
-  left: 0;
 
   width: 200px;
 
@@ -89,6 +89,11 @@ main {
 
   /* transition for showing/hiding the sidebar */
   transition: transform 0.3s;
+}
+
+.cats-menu {
+  /* fix to the left edge */
+  left: 0;
 }
 
 .sidebar-hidden {
@@ -150,4 +155,25 @@ img {
   width: 100%;
   cursor: pointer;
   border-radius: 10px;
+}
+
+.admin-sidebar {
+  /* fix to the right edge */
+  right: 0;
+}
+
+
+.admin-hidden {
+  transform: translateX(250px);
+}
+
+.admin-sidebar label {
+  /* add vertical spacing between the form fields */
+  display: block;
+  margin: 0 0 0.5em 0;
+}
+
+.admin-sidebar input {
+  /* fill up the available width while maintaining horizontal spacing */
+  width: calc(100% - 0.25rem);
 }
