@@ -24,13 +24,15 @@ describe('The model', () => {
     jasmine.addMatchers(customMatchers);
   });
 
-  it('has a getAllCats method that returns an array of all the cats', () => {
+  // test for a method that returns an array of all the cats
+  it('has a getAllCats method', () => {
     expect(data.getAllCats).toBeDefined();
     expect(data.getAllCats()).toBeInstanceOf(Array);
     expect(data.getAllCats().length).toEqual(5);
   });
 
-  it('has a getCat method that takes a number and returns an object', () => {
+  // test for a method that takes a number and returns an object
+  it('has a getCat method', () => {
     // get random index within the length of the array
     const index = Math.floor(Math.random() * data.getAllCats().length);
 
@@ -42,8 +44,9 @@ describe('The model', () => {
     expect(typeof data.getCat(index)).toEqual('object');
   });
 
+  // test for a method that increments the click count for a specified cat
   it(
-    'has an updateCount method that increments the click count for a specified cat',
+    'has an updateCount method',
     () => {
       // randomly select a cat and get its current count
       const index = Math.floor(Math.random() * data.getAllCats().length);
@@ -59,6 +62,41 @@ describe('The model', () => {
       data.updateCount(index, curClicks + 1);
     }
   );
+
+  // test for a method whose return value indicates whether the
+  // sidebar will be shown/hidden on the next render
+  it('has a toShow method', () => {
+    expect(data.toShow).toBeDefined();
+    expect(data.toShow()).toEqual(jasmine.any(Boolean));
+  });
+
+  // test for a method that toggles the toShow value
+  it('has a toggleToShow method', () => {
+    expect(data.toggleToShow).toBeDefined();
+
+    // get current toShow value
+    const curVal = data.toShow();
+
+    // toggle it
+    data.toggleToShow();
+
+    // ensure it's been toggled
+    expect(data.toShow()).toEqual(!curVal);
+  });
+
+  // test for a method that explicitly sets the toShow value
+  it('has a setToShow method', () => {
+    expect(data.setToShow).toBeDefined();
+
+    // get current value
+    const curVal = data.toShow();
+
+    // explicitly set it to the reverse
+    data.setToShow(!curVal);
+
+    // ensure it's been changed
+    expect(data.toShow()).toEqual(!curVal);
+  });
 });
 
 /*
