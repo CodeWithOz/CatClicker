@@ -27,6 +27,10 @@ const data = (() => {
     }
   ];
 
+  // this flag indicates what will happen on the next render
+  // admin sidebar is hidden by default so it should be false
+  let toShow = false;
+
   return {
     getCat(index) {
       return cats[index];
@@ -38,6 +42,18 @@ const data = (() => {
 
     updateCount(index, newCount) {
       cats[index].count = newCount;
+    },
+
+    toShow() {
+      return toShow;
+    },
+
+    toggleToShow() {
+      toShow = !toShow;
+    },
+
+    setToShow(newVal) {
+      toShow = newVal;
     }
   };
 })();
