@@ -28,10 +28,23 @@ h1 {
   /* fix hamburger to the left of the navbar */
   position: absolute;
   left: 0px;
+
+  /* give it a right border to delineate it visually */
+  border-right: 1px solid #fff;
+}
+
+.admin-btn {
+  /* fix admin button to the right of the navbar */
+  position: absolute;
+  right: 0px;
+
+  /* give it a left border to delineate it visually */
+  border-left: 1px solid #fff;
 }
 
 .hamburger a,
-.cats-menu a {
+.cats-menu a,
+.admin-btn a {
   /* remove anchor tag's default styling */
   text-decoration: none;
 
@@ -45,7 +58,8 @@ h1 {
   display: block;
 }
 
-.hamburger a {
+.hamburger a,
+.admin-btn a {
   /*
    * create some space around the hamburger
    * this space is clickable because of `display: block` earlier
