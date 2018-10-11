@@ -47,6 +47,8 @@ const view = {
   sidebar: document.querySelector('.cats-menu'),
   imageDiv: document.querySelector('.cat-pic'),
   displayArea: document.querySelector('.cat-display'),
+  adminSidebar: document.querySelector('.admin-sidebar'),
+  adminBtn: document.querySelector('.admin-btn'),
 
   // get the list items in the sidebar
   getSidebarItems() {
