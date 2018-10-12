@@ -219,6 +219,11 @@ const octopus = (() => {
     // handle clicks on admin button
     handleAdminBtnClick(event) {
       view.renderAdminSidebar();
+    },
+
+    // update a cat's values
+    updateCat(index, newVals) {
+      data.updateCat(index, newVals);
     }
   };
 })();
