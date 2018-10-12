@@ -7,6 +7,9 @@ body {
 
   /* remove default margins */
   margin: 0;
+
+  /* ensure there is no horizontal scrolling for off-page content */
+  overflow-x: hidden;
 }
 
 nav {
