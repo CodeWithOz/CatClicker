@@ -214,6 +214,10 @@ describe('The `view` JS object', () => {
   it('contains a renderAdminSidebar method', () => {
     expect(view.renderAdminSidebar).toBeDefined();
   });
+
+  it('contains an `cancelBtn` property', () => {
+    expect(view.cancelBtn).toBeDefined();
+  });
 });
 
 /*
