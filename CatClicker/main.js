@@ -55,6 +55,13 @@ const data = (() => {
 
     setToShow(newVal) {
       toShow = newVal;
+    },
+
+    updateCat(index, newVals) {
+      const cat = cats[index];
+      cat.name = newVals.name;
+      cat.src = newVals.src;
+      cat.count = newVals.count;
     }
   };
 })();
