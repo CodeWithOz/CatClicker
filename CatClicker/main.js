@@ -77,6 +77,7 @@ const view = {
   displayArea: document.querySelector('.cat-display'),
   adminSidebar: document.querySelector('.admin-sidebar'),
   adminBtn: document.querySelector('.admin-btn'),
+  cancelBtn: document.querySelector('.admin-sidebar button[name="cancel"]'),
 
   // get the list items in the sidebar
   getSidebarItems() {
