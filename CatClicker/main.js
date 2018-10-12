@@ -58,10 +58,14 @@ const data = (() => {
     },
 
     updateCat(index, newVals) {
-      const cat = cats[index];
-      cat.name = newVals.name;
-      cat.src = newVals.src;
-      cat.count = newVals.count;
+      const cat = cats[index],
+        { name, src, count } = newVals;
+
+      // use current values if new values are not supplied
+      cat.name = name || cat.name;
+      cat.src = src || cat.src;
+      // and ensure a count value of 0 is not ignored by || operator
+      cat.count = count === 0 ? count : count || cat.count;
     }
   };
 })();
