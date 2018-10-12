@@ -259,6 +259,10 @@ describe('The octopus', () => {
   it('contains a handleAdminBtnClick method', () => {
     expect(octopus.handleAdminBtnClick).toBeDefined();
   });
+
+  it('contains an updateCat method', () => {
+    expect(octopus.updateCat).toBeDefined();
+  });
 });
 
 /*
