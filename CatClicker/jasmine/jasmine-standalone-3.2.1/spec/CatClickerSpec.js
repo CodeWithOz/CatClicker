@@ -263,6 +263,10 @@ describe('The octopus', () => {
   it('contains an updateCat method', () => {
     expect(octopus.updateCat).toBeDefined();
   });
+
+  it('contains a handleCancel method', () => {
+    expect(octopus.handleCancel).toBeDefined();
+  });
 });
 
 /*
