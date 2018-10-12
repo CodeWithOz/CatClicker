@@ -341,6 +341,18 @@ describe('The admin sidebar', () => {
     view.adminSidebar.addEventListener('transitionend', testForHiddenSidebar);
     view.adminBtn.click();
   });
+
+  it(`hides when the display area (below navbar and not sidebar) is clicked`, () => {
+    // first show the sidebar
+    view.adminBtn.click();
+    expect(view.adminSidebar.classList.value).not.toContain('admin-hidden');
+
+    // click the display area
+    view.displayArea.click();
+
+    // sidebar should be hidden
+    expect(view.adminSidebar.classList.value).toContain('admin-hidden');
+  });
 });
 
 describe('Selecting a cat from the sidebar', () => {
