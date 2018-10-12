@@ -28,7 +28,8 @@ const data = (() => {
   ];
 
   // this flag indicates what will happen on the next render
-  // admin sidebar is hidden by default so it should be false
+  // admin sidebar is hidden by default
+  // so it should start off as false
   let toShow = false;
 
   return {
@@ -123,9 +124,12 @@ const octopus = (() => {
       const firstCat = data.getCat(0);
       view.renderDisplay(firstCat);
 
-      // render the sidebar
+      // render the cat sidebar
       const cats = data.getAllCats();
       view.renderSidebar(cats, 0);
+
+      // render the admin sidebar
+      view.renderAdminSidebar();
     },
 
     handleDisplayAreaClick(event) {
@@ -190,6 +194,11 @@ const octopus = (() => {
     // set to-show status
     setToShow(newVal) {
       data.setToShow(newVal);
+    },
+
+    // handle clicks on admin button
+    handleAdminBtnClick(event) {
+      view.renderAdminSidebar();
     }
   };
 })();
@@ -208,3 +217,6 @@ view.sidebar.addEventListener('click', octopus.handleCatSelection);
 
 // track clicks on the image
 view.imageDiv.addEventListener('click', octopus.handleImageClick);
+
+// handle admin button clicks
+view.adminBtn.addEventListener('click', octopus.handleAdminBtnClick);
