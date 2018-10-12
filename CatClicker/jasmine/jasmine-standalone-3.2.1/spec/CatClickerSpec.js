@@ -534,3 +534,15 @@ describe('The admin sidebar', () => {
     expect(view.adminSidebar.classList.value).toContain('admin-hidden');
   });
 });
+
+describe('Clicking the cancel button', () => {
+  it('hides the admin sidebar', () => {
+    // first show the admin sidebar
+    view.adminBtn.click();
+    expect(view.adminSidebar.classList.value).not.toContain('admin-hidden');
+
+    // then click the cancel button
+    view.cancelBtn.click();
+    expect(view.adminSidebar.classList.value).toContain('admin-hidden');
+  });
+});
