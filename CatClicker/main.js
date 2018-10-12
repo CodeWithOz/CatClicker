@@ -224,6 +224,14 @@ const octopus = (() => {
     // update a cat's values
     updateCat(index, newVals) {
       data.updateCat(index, newVals);
+    },
+
+    // handle clicks on cancel button
+    handleCancel(event) {
+      // the button is of type="reset"
+      // so it already clears the form fields
+      // only need to hide the sidebar
+      view.renderAdminSidebar();
     }
   };
 })();
