@@ -223,6 +223,10 @@ describe('The octopus', () => {
   it('contains a setToShow method', () => {
     expect(octopus.setToShow).toBeDefined();
   });
+
+  it('contains a handleAdminBtnClick method', () => {
+    expect(octopus.handleAdminBtnClick).toBeDefined();
+  });
 });
 
 /*
@@ -300,6 +304,42 @@ describe('The admin sidebar', () => {
 
     // left edge should be on or after the right edge of viewport
     expect(sidebarRect.left).toBeGreaterThanOrEqual(window.innerWidth);
+  });
+
+  // handle clicks on the admin button
+  it('shows on first admin button click', (done) => {
+    const testForShownSidebar = event => {
+      const sidebarRect = getSidebarRect();
+
+      // right edge should not exceed right viewport edge
+      expect(sidebarRect.right).toBeLessThanOrEqual(window.innerWidth);
+
+      // remove the event listener
+      view.adminSidebar.removeEventListener('transitionend', testForShownSidebar);
+
+      // signal async completion
+      done();
+    };
+
+    view.adminSidebar.addEventListener('transitionend', testForShownSidebar);
+    view.adminBtn.click();
+  });
+
+  it('hides on second admin button click', (done) => {
+    const testForHiddenSidebar = event => {
+      const sidebarRect = getSidebarRect();
+      // left edge should be off-screen
+      expect(sidebarRect.left).toBeGreaterThanOrEqual(window.innerWidth);
+
+      // remove the event listener
+      view.adminSidebar.removeEventListener('transitionend', testForHiddenSidebar);
+
+      // signal async completion
+      done();
+    };
+
+    view.adminSidebar.addEventListener('transitionend', testForHiddenSidebar);
+    view.adminBtn.click();
   });
 });
 
