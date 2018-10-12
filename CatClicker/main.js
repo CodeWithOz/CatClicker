@@ -134,6 +134,15 @@ const octopus = (() => {
 
     handleDisplayAreaClick(event) {
       view.sidebar.classList.add('sidebar-hidden');
+
+      /* view.renderAdminSidebar() will not work here
+       * because it always does the next thing based on
+       * the current toggle status.
+       * Here, we always want to hide the admin sidebar and
+       * set it to show on the next render.
+       */
+      view.adminSidebar.classList.add('admin-hidden');
+      octopus.setToShow(true);
     },
 
     handleHamburgerClick(event) {
