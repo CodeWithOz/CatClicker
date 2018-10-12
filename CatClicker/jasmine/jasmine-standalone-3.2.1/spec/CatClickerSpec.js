@@ -335,70 +335,6 @@ describe('The cat sidebar', () => {
 });
 
 
-/*
- * This suite tests the admin sidebar's behavior
- */
-describe('The admin sidebar', () => {
-  const getSidebarRect = () => view.adminSidebar.getBoundingClientRect();
-
-  // ensure it is hidden by default
-  it('is hidden by default', () => {
-    const sidebarRect = getSidebarRect();
-    expect(view.adminSidebar.classList.value).toContain('admin-hidden');
-
-    // left edge should be on or after the right edge of viewport
-    expect(sidebarRect.left).toBeGreaterThanOrEqual(window.innerWidth);
-  });
-
-  // handle clicks on the admin button
-  it('is visible on first admin button click', (done) => {
-    const testForShownSidebar = event => {
-      const sidebarRect = getSidebarRect();
-
-      // right edge should not exceed right viewport edge
-      expect(sidebarRect.right).toBeLessThanOrEqual(window.innerWidth);
-
-      // remove the event listener
-      view.adminSidebar.removeEventListener('transitionend', testForShownSidebar);
-
-      // signal async completion
-      done();
-    };
-
-    view.adminSidebar.addEventListener('transitionend', testForShownSidebar);
-    view.adminBtn.click();
-  });
-
-  it('is not visible on second admin button click', (done) => {
-    const testForHiddenSidebar = event => {
-      const sidebarRect = getSidebarRect();
-      // left edge should be off-screen
-      expect(sidebarRect.left).toBeGreaterThanOrEqual(window.innerWidth);
-
-      // remove the event listener
-      view.adminSidebar.removeEventListener('transitionend', testForHiddenSidebar);
-
-      // signal async completion
-      done();
-    };
-
-    view.adminSidebar.addEventListener('transitionend', testForHiddenSidebar);
-    view.adminBtn.click();
-  });
-
-  it(`hides when the display area (below navbar and not sidebar) is clicked`, () => {
-    // first show the sidebar
-    view.adminBtn.click();
-    expect(view.adminSidebar.classList.value).not.toContain('admin-hidden');
-
-    // click the display area
-    view.displayArea.click();
-
-    // sidebar should be hidden
-    expect(view.adminSidebar.classList.value).toContain('admin-hidden');
-  });
-});
-
 describe('Selecting a cat from the sidebar', () => {
   it(`hides the sidebar`, () => {
     // first show the sidebar
@@ -532,5 +468,69 @@ describe('Clicking the image', () => {
 
     // test for increment
     expect(newCount).toEqual(curClicks + 1);
+  });
+});
+
+/*
+* This suite tests the admin sidebar's behavior
+*/
+describe('The admin sidebar', () => {
+  const getSidebarRect = () => view.adminSidebar.getBoundingClientRect();
+
+  // ensure it is hidden by default
+  it('is hidden by default', () => {
+    const sidebarRect = getSidebarRect();
+    expect(view.adminSidebar.classList.value).toContain('admin-hidden');
+
+    // left edge should be on or after the right edge of viewport
+    expect(sidebarRect.left).toBeGreaterThanOrEqual(window.innerWidth);
+  });
+
+  // handle clicks on the admin button
+  it('is visible on first admin button click', (done) => {
+    const testForShownSidebar = event => {
+      const sidebarRect = getSidebarRect();
+
+      // right edge should not exceed right viewport edge
+      expect(sidebarRect.right).toBeLessThanOrEqual(window.innerWidth);
+
+      // remove the event listener
+      view.adminSidebar.removeEventListener('transitionend', testForShownSidebar);
+
+      // signal async completion
+      done();
+    };
+
+    view.adminSidebar.addEventListener('transitionend', testForShownSidebar);
+    view.adminBtn.click();
+  });
+
+  it('is not visible on second admin button click', (done) => {
+    const testForHiddenSidebar = event => {
+      const sidebarRect = getSidebarRect();
+      // left edge should be off-screen
+      expect(sidebarRect.left).toBeGreaterThanOrEqual(window.innerWidth);
+
+      // remove the event listener
+      view.adminSidebar.removeEventListener('transitionend', testForHiddenSidebar);
+
+      // signal async completion
+      done();
+    };
+
+    view.adminSidebar.addEventListener('transitionend', testForHiddenSidebar);
+    view.adminBtn.click();
+  });
+
+  it(`hides when the display area (below navbar and not sidebar) is clicked`, () => {
+    // first show the sidebar
+    view.adminBtn.click();
+    expect(view.adminSidebar.classList.value).not.toContain('admin-hidden');
+
+    // click the display area
+    view.displayArea.click();
+
+    // sidebar should be hidden
+    expect(view.adminSidebar.classList.value).toContain('admin-hidden');
   });
 });
