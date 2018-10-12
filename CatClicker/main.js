@@ -254,3 +254,6 @@ view.imageDiv.addEventListener('click', octopus.handleImageClick);
 
 // handle admin button clicks
 view.adminBtn.addEventListener('click', octopus.handleAdminBtnClick);
+
+// handle cancel button clicks
+view.cancelBtn.addEventListener('click', octopus.handleCancel);
