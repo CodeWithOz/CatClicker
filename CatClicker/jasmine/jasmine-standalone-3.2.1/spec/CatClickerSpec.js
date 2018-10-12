@@ -286,6 +286,23 @@ describe('The cat sidebar', () => {
   });
 });
 
+
+/*
+ * This suite tests the admin sidebar's behavior
+ */
+describe('The admin sidebar', () => {
+  const getSidebarRect = () => view.adminSidebar.getBoundingClientRect();
+
+  // ensure it is hidden by default
+  it('is hidden by default', () => {
+    const sidebarRect = getSidebarRect();
+    expect(view.adminSidebar.classList.value).toContain('admin-hidden');
+
+    // left edge should be on or after the right edge of viewport
+    expect(sidebarRect.left).toBeGreaterThanOrEqual(window.innerWidth);
+  });
+});
+
 describe('Selecting a cat from the sidebar', () => {
   it(`hides the sidebar`, () => {
     // first show the sidebar
