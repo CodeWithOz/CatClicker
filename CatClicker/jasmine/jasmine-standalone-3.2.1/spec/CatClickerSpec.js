@@ -97,6 +97,38 @@ describe('The model', () => {
     // ensure it's been changed
     expect(data.toShow()).toEqual(!curVal);
   });
+
+  it('has an updateCat method', () => {
+    expect(data.updateCat).toBeDefined();
+
+    // randomly get a current cat
+    const index = Math.floor(Math.random() * data.getAllCats().length),
+      cat = data.getCat(index);
+
+    // save its current values
+    const { name, src, count } = cat;
+
+    // ensure that it doesn't currently match the intended new values
+    const newVals = {
+      name: 'new name',
+      src: 'new src',
+      count: 10
+    };
+    expect(name).not.toEqual(newVals.name);
+    expect(src).not.toEqual(newVals.src);
+    expect(count).not.toEqual(newVals.count);
+
+    // update its values
+    data.updateCat(index, newVals);
+
+    // ensure that it now matches the intended values
+    expect(cat.name).toEqual(newVals.name);
+    expect(cat.src).toEqual(newVals.src);
+    expect(cat.count).toEqual(newVals.count);
+
+    // reset the values
+    data.updateCat(index, { name, src, count });
+  });
 });
 
 /*
