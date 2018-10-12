@@ -243,7 +243,7 @@ describe('The cat sidebar', () => {
   });
 
   // handle clicks on the hamburger button
-  it('shows on first hamburger click', (done) => {
+  it('is visible on first hamburger click', (done) => {
     const testForShownMenu = event => {
       const sidebarRect = getSidebarRect();
       // position of right edge should be equal to the width
@@ -260,7 +260,7 @@ describe('The cat sidebar', () => {
     view.hamburger.click();
   });
 
-  it('hides on second hamburger click', (done) => {
+  it('is not visible on second hamburger click', (done) => {
     const testForHiddenMenu = event => {
       const sidebarRect = getSidebarRect();
       // right edge should be off-screen
@@ -307,7 +307,7 @@ describe('The admin sidebar', () => {
   });
 
   // handle clicks on the admin button
-  it('shows on first admin button click', (done) => {
+  it('is visible on first admin button click', (done) => {
     const testForShownSidebar = event => {
       const sidebarRect = getSidebarRect();
 
@@ -325,7 +325,7 @@ describe('The admin sidebar', () => {
     view.adminBtn.click();
   });
 
-  it('hides on second admin button click', (done) => {
+  it('is not visible on second admin button click', (done) => {
     const testForHiddenSidebar = event => {
       const sidebarRect = getSidebarRect();
       // left edge should be off-screen
