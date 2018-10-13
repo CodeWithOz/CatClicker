@@ -1,12 +1,12 @@
 # Description
-This repository contains different projects from the **Frontend
+This is the Cat Clicker project from the **Frontend
 Applications** section of the Udacity Frontend Nanodegree course.
 
-## Note
-All JavaScript will be written with ES6 code and use the latest features
-available to my Google Chrome browser. For some projects, I will use
-build tools to perform any necessary transpiling. If necessary, I will
-include a README.md with instructions for specific projects.
+## Instructions
+All JavaScript is written with ES6 code and uses the latest features
+available to my Google Chrome browser. No build tools were used to
+transpile the code so ensure you're running a recent version of your
+browser.
 
 ## Contributing
 Feel free to fork, tweak and submit pull requests - I will be happy
