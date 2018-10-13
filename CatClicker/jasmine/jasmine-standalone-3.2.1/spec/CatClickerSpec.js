@@ -128,6 +128,15 @@ describe('The model', () => {
 
     // reset the values
     data.updateCat(index, { name, src, count });
+
+    // ensure that nothing changes when empty strings are submitted
+    newVals.name = '';
+    newVals.src = '';
+    newVals.count = '';
+    data.updateCat(index, newVals);
+    expect(cat.name).toEqual(name);
+    expect(cat.src).toEqual(src);
+    expect(cat.count).toEqual(count);
   });
 });
 
