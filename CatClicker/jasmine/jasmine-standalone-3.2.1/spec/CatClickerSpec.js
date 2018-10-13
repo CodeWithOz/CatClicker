@@ -227,6 +227,10 @@ describe('The `view` JS object', () => {
   it('contains an `cancelBtn` property', () => {
     expect(view.cancelBtn).toBeDefined();
   });
+
+  it('contains an `saveBtn` property', () => {
+    expect(view.saveBtn).toBeDefined();
+  });
 });
 
 /*
