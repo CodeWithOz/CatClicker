@@ -280,6 +280,10 @@ describe('The octopus', () => {
   it('contains a handleCancel method', () => {
     expect(octopus.handleCancel).toBeDefined();
   });
+
+  it('contains a handleSave method', () => {
+    expect(octopus.handleSave).toBeDefined();
+  });
 });
 
 /*
