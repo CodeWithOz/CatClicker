@@ -113,7 +113,10 @@ const view = {
       docFrag.appendChild(entry);
     });
 
-    // add the list to the DOM
+    // clear the current list
+    sidebarList.innerHTML = '';
+
+    // add the new list to the DOM
     sidebarList.appendChild(docFrag);
   },
 
@@ -243,8 +246,9 @@ const octopus = (() => {
         count: count.value
       });
 
-      // re-render the new values
+      // re-render the new values in the display area and cat sidebar
       octopus.loadCat(catImg.dataset.index);
+      octopus.loadSidebar();
 
       // trigger the reset event to clear and hide the form
       view.adminForm.reset();
