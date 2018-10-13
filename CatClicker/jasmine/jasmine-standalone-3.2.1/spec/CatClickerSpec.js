@@ -593,4 +593,19 @@ describe('Clicking the save button', () => {
     // check if it tried to update
     expect(data.updateCat).toHaveBeenCalled();
   });
+
+  it('updates the cat sidebar', () => {
+    // first show the admin sidebar
+    view.adminBtn.click();
+    expect(view.adminSidebar.classList.value).not.toContain('admin-hidden');
+
+    // spy on the renderSidebar method
+    spyOn(view, 'renderSidebar');
+
+    // click the save button
+    view.saveBtn.click();
+
+    // check if it tried to update
+    expect(view.renderSidebar).toHaveBeenCalled();
+  });
 });
