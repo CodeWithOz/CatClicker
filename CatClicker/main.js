@@ -233,6 +233,24 @@ const octopus = (() => {
       // so it already clears the form fields
       // only need to hide the sidebar
       view.renderAdminSidebar();
+    },
+
+    // handle clicks on save button
+    handleSave(event) {
+      event.preventDefault();
+      const { target } = event;
+
+      // get the submitted values and update the model
+      const [ name, src, count ] = target,
+        catImg = imageDiv.children[0].children[1];
+      data.updateCat(catImg.dataset.index, {
+        name: name.value,
+        src: src.value,
+        count: count.value
+      });
+
+      // re-render the new values
+      octopus.loadCat(catImg.dataset.index);
     }
   };
 })();
