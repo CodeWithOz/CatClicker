@@ -133,8 +133,7 @@ const octopus = (() => {
   return {
     init() {
       // render the main display
-      const firstCat = data.getCat(0);
-      view.renderDisplay(firstCat);
+      octopus.loadCat(0);
 
       // render the cat sidebar
       const cats = data.getAllCats();
@@ -189,9 +188,8 @@ const octopus = (() => {
       const counter = target.nextElementSibling.querySelector('.clicks');
       data.updateCount(index, Number(counter.textContent) + 1);
 
-      // render the cat again to update the count
-      const clickedCat = data.getCat(index);
-      view.renderDisplay(clickedCat, index);
+      // render the cat again to update the displayed count
+      octopus.loadCat(index);
     },
 
     loadCat(index) {
