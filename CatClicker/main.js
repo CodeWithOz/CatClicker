@@ -78,6 +78,7 @@ const view = {
   adminSidebar: document.querySelector('.admin-sidebar'),
   adminBtn: document.querySelector('.admin-btn'),
   cancelBtn: document.querySelector('.admin-sidebar button[name="cancel"]'),
+  saveBtn: document.querySelector('.admin-sidebar button[name="save"]'),
 
   // get the list items in the sidebar
   getSidebarItems() {
