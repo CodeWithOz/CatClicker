@@ -222,11 +222,6 @@ const octopus = (() => {
       view.renderAdminSidebar();
     },
 
-    // update a cat's values
-    updateCat(index, newVals) {
-      data.updateCat(index, newVals);
-    },
-
     // handle clicks on cancel button
     handleCancel(event) {
       // the button is of type="reset"
