@@ -250,6 +250,9 @@ const octopus = (() => {
 
       // re-render the new values
       octopus.loadCat(catImg.dataset.index);
+
+      // use cancel button to reset and hide the form
+      view.cancelBtn.click();
     }
   };
 })();
