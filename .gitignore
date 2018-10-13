@@ -1,3 +1,3 @@
 # Ignore Jasmine files except spec files
-CatClicker/jasmine/jasmine-standalone-3.2.1/lib/
-CatClicker/jasmine/jasmine-standalone-3.2.1/src/
+jasmine/jasmine-standalone-3.2.1/lib/
+jasmine/jasmine-standalone-3.2.1/src/
