@@ -585,12 +585,12 @@ describe('Clicking the save button', () => {
     expect(view.adminSidebar.classList.value).not.toContain('admin-hidden');
 
     // spy on the updateCat method
-    spyOn(octopus, 'updateCat');
+    spyOn(data, 'updateCat');
 
     // click the save button
     view.saveBtn.click();
 
     // check if it tried to update
-    expect(octopus.updateCat).toHaveBeenCalled();
+    expect(data.updateCat).toHaveBeenCalled();
   });
 });
