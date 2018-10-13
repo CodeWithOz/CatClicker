@@ -242,7 +242,7 @@ const octopus = (() => {
 
       // get the submitted values and update the model
       const [ name, src, count ] = target,
-        catImg = imageDiv.children[0].children[1];
+        catImg = view.imageDiv.children[0].children[1];
       data.updateCat(catImg.dataset.index, {
         name: name.value,
         src: src.value,
@@ -252,8 +252,8 @@ const octopus = (() => {
       // re-render the new values
       octopus.loadCat(catImg.dataset.index);
 
-      // use cancel button to reset and hide the form
-      view.cancelBtn.click();
+      // trigger the reset event to clear and hide the form
+      view.adminForm.reset();
     }
   };
 })();
@@ -278,3 +278,6 @@ view.adminBtn.addEventListener('click', octopus.handleAdminBtnClick);
 
 // handle cancel button clicks
 view.adminForm.addEventListener('reset', octopus.handleCancel);
+
+// handle save button clicks
+view.adminForm.addEventListener('submit', octopus.handleSave);
