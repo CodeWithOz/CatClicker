@@ -138,8 +138,7 @@ const octopus = (() => {
       octopus.loadCat(0);
 
       // render the cat sidebar
-      const cats = data.getAllCats();
-      view.renderSidebar(cats, 0);
+      octopus.loadSidebar();
 
       // render the admin sidebar
       view.renderAdminSidebar();
@@ -249,6 +248,11 @@ const octopus = (() => {
 
       // trigger the reset event to clear and hide the form
       view.adminForm.reset();
+    },
+
+    loadSidebar() {
+      const cats = data.getAllCats();
+      view.renderSidebar(cats);
     }
   };
 })();
