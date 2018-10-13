@@ -563,3 +563,30 @@ describe('Clicking the cancel button', () => {
     expect(view.adminSidebar.classList.value).toContain('admin-hidden');
   });
 });
+
+describe('Clicking the save button', () => {
+  it('hides the admin sidebar', () => {
+    // first show the admin sidebar
+    view.adminBtn.click();
+    expect(view.adminSidebar.classList.value).not.toContain('admin-hidden');
+
+    // then click the save button
+    view.saveBtn.click();
+    expect(view.adminSidebar.classList.value).toContain('admin-hidden');
+  });
+
+  it('calls the updateCat method on the octopus', () => {
+    // first show the admin sidebar
+    view.adminBtn.click();
+    expect(view.adminSidebar.classList.value).not.toContain('admin-hidden');
+
+    // spy on the updateCat method
+    spyOn(octopus, 'updateCat');
+
+    // click the save button
+    view.saveBtn.click();
+
+    // check if it tried to update
+    expect(octopus.updateCat).toHaveBeenCalled();
+  });
+});
