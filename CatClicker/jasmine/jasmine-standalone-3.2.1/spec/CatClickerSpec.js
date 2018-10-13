@@ -288,6 +288,10 @@ describe('The octopus', () => {
   it('contains a handleSave method', () => {
     expect(octopus.handleSave).toBeDefined();
   });
+
+  it('contains a loadSidebar method', () => {
+    expect(octopus.loadSidebar).toBeDefined();
+  });
 });
 
 /*
